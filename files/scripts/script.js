@@ -1,8 +1,8 @@
 function login() {
-    let usrname = document.getElementById("username");
-    let password = document.getElementById("password");
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
 
-    if (usrname == "username" && password == "password") {
+    if (username == "username" && password == "password") {
         console.log("Access Granted")
     } else {
         console.log("Fuck off");
