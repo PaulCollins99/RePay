@@ -10,7 +10,7 @@ function login() {
     }
 }
 
-function boot (){
+function boot() {
     window.loginBtn.addEventListener("click", login)
 }
 
