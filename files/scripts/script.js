@@ -1,4 +1,5 @@
 function login() {
+    //grab the values from the form input elements
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
@@ -13,16 +14,20 @@ function login() {
     }
 }
 
+//googles premaid function for retrieving data from google sign in
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Gotta use sommin called an id token here... not sure what that is tbh
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); 
+
+    window.location.href = "menu.html";
   }
 
 function boot() {
     window.loginBtn.addEventListener("click", login);
+    //create of a local storage "account".
     localStorage.setItem("login-username", "admin");
     localStorage.setItem("login-password", "pass");
 }
