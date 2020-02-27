@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>RePay Login</title>
     <script src="./scripts/script.js"></script>
+    <meta name="google-signin-client_id" content="677731007317-fa0nj350uv8if5r4gqdp1koq13qv6s49.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 
 <body>
@@ -14,7 +16,10 @@
         <input type="text" placeholder="Username" id="username"></input>
         <Input type="text" placeholder="Password" id="password"></Input>
         <button type="button" id="loginBtn">Login</button>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </main>
+
+
 </body>
 
 </html>
