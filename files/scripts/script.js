@@ -22,7 +22,7 @@ function onSignIn(googleUser) {
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail()); 
 
-    window.location.href = "menu.html";
+   // window.location.href = "menu.html";
   }
 
 function boot() {
