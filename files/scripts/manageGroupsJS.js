@@ -1,3 +1,5 @@
+//function to add new list item into the group list
+
 function addLi () {
     const element = document.getElementById("listOfGroups");
     const newElement = document.createElement("li");
