@@ -22,7 +22,7 @@ function addTextBox () {
 
 function addLi () {
     const element = document.getElementById("listOfGroups");
-    const text = document.getElementById("nameInput").textContent;
+    const text = document.getElementById("nameInput").value;
     const newElement = document.createElement("li");
     newElement.textContent = text;
     element.appendChild(newElement);
