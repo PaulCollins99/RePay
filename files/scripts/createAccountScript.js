@@ -7,6 +7,13 @@ function checkCriteria () {
         if (localStorage.getItem("login-username") !== username) {
             createAccount(username, password);
         }
+        else {
+            console.log("username already exists");
+            
+        }
+    } else {
+        console.log("password invalid");
+        
     }
 }
 
@@ -14,6 +21,7 @@ function createAccount (username, password) {
     localStorage.setItem("login-username", username);
     localStorage.setItem("login-password", password);
     localStorage.setItem("Username", username);
+    console.log("Account created");
     login();
 }
 
