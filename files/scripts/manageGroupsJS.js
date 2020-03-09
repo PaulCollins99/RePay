@@ -1,6 +1,6 @@
 //function to add new list item into the group list
 
-function showTextBox () {
+function showTextBox() {
 
     const addButton = document.getElementById("createNewGroup")
     addButton.style.display = "none";
@@ -13,7 +13,7 @@ function showTextBox () {
 }
 
 
-function addLi () {
+function addLi() {
     const element = document.getElementById("listOfGroups");
     const input = document.getElementById("nameInput");
     const newElement = document.createElement("li");
@@ -32,7 +32,7 @@ function addLi () {
     input.value = "";
 }
 
-function boot () {
+function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
 }

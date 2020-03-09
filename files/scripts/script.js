@@ -20,12 +20,12 @@ function onSignIn(googleUser) {
     console.log('ID: ' + profile.getId()); // Gotta use sommin called an id token here... not sure what that is tbh
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); 
+    console.log('Email: ' + profile.getEmail());
 
-   // window.location.href = "menu.html";
-  }
+    // window.location.href = "menu.html";
+}
 
-function newAccount () {
+function newAccount() {
     localStorage.setItem("UTL", "NewUser")
     window.location.href = 'createAccount.html'
 }

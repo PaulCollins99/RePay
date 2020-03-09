@@ -1,4 +1,4 @@
-function checkCriteria () {
+function checkCriteria() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let passCheck = document.getElementById("confirmPassword").value
@@ -6,18 +6,17 @@ function checkCriteria () {
     if (password === passCheck && password != null && password != "") {
         if (localStorage.getItem("login-username") !== username) {
             createAccount(username, password);
-        }
-        else {
+        } else {
             console.log("username already exists");
-            
+
         }
     } else {
         console.log("password invalid");
-        
+
     }
 }
 
-function createAccount (username, password) {
+function createAccount(username, password) {
     localStorage.setItem("login-username", username);
     localStorage.setItem("login-password", password);
     localStorage.setItem("Username", username);
@@ -25,11 +24,11 @@ function createAccount (username, password) {
     login();
 }
 
-function login () {
-    window.location.href = "menu.href";
+function login() {
+    window.location.href = "menu.html";
 }
 
-function boot () {
+function boot() {
     window.createBtn.addEventListener("click", checkCriteria);
 }
 
