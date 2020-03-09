@@ -3,6 +3,8 @@
 function addTextBox () {
     const element = document.getElementById("manageGroupsDiv");
 
+
+    
     const newElement = document.createElement("input");
     newElement.placeholder = "Enter Name";
     newElement.id = "nameInput";
