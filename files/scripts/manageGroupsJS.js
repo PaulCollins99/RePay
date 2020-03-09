@@ -1,26 +1,17 @@
 //function to add new list item into the group list
 
-function addTextBox () {
-    const element = document.getElementById("manageGroupsDiv");
+function showTextBox () {
 
+    const addButton = document.getElementById("createNewGroup")
+    addButton.style.display = "none";
 
-    
-    const newElement = document.createElement("input");
-    newElement.placeholder = "Enter Name";
-    newElement.id = "nameInput";
-    
-    const newButton = document.createElement("button");
-    newButton.textContent = "Create";
-    newButton.id = "createButton";
-    newButton.addEventListener("click", addLi);
+    const oldButton = document.getElementById("createButton")
+    oldButton.style.display = "block";
 
-    const oldAddButton = document.getElementById("createNewGroup")
-    oldAddButton.style.display = "none";
-
-    element.appendChild(newElement);
-    element.appendChild(newButton);
-
+    const oldInput = document.getElementById("nameInput")
+    oldInput.style.display = "block";
 }
+
 
 function addLi () {
     const element = document.getElementById("listOfGroups");
@@ -41,8 +32,8 @@ function addLi () {
 
 
 function boot () {
-    window.createNewGroup.addEventListener("click", addTextBox)
-    
+    window.createNewGroup.addEventListener("click", showTextBox)
+    window.newButton.addEventListener("click", addLi);
 }
 
 window.addEventListener("load", boot);
