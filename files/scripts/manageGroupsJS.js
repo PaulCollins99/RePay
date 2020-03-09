@@ -5,6 +5,7 @@ function addTextBox () {
 
     const newElement = document.createElement("input");
     newElement.placeholder = "Enter Name";
+    newElement.id = "nameInput";
     
     const newButton = document.createElement("button");
     newButton.textContent = "Create";
@@ -21,8 +22,9 @@ function addTextBox () {
 
 function addLi () {
     const element = document.getElementById("listOfGroups");
+    const text = document.getElementById("nameInput").textContent;
     const newElement = document.createElement("li");
-    newElement.textContent = "Group name here";
+    newElement.textContent = text;
     element.appendChild(newElement);
 }
 
