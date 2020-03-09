@@ -20,6 +20,10 @@ function addLi () {
     newElement.textContent = input.value;
     element.appendChild(newElement);
 
+    let groups = getGroupsFromStorage();
+    groups.push("input.value");
+    console.log(groups) 
+
     const addButton = document.getElementById("createNewGroup")
     addButton.style.display = "block";
 
@@ -30,6 +34,17 @@ function addLi () {
     oldInput.style.display = "none";
 
     input.value = "";
+}
+
+function getGroupsFromStorage () {
+    const listOfGroups = JSON.parse(localStorage.getItem("groupList"));
+    return listOfGroups;
+}
+
+function populateGroups () {
+    
+    listOfGroups.forEach(e => console.log(e));
+
 }
 
 
