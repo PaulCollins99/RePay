@@ -8,7 +8,7 @@ function login() {
     if (username == localStorage.getItem("login-username") && password == localStorage.getItem("login-password")) {
         console.log("Access Granted");
         localStorage.setItem("Username", username);
-        window.location.href = 'menu.html';
+        window.location.href = 'managegroups.html';
     } else {
         console.log("Access Denied");
     }
