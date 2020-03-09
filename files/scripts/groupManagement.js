@@ -1,5 +1,6 @@
 function boot () {
 
+    let username = localStorage.getItem("Username");
     
 
 
