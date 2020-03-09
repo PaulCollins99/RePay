@@ -15,9 +15,9 @@ function showTextBox () {
 
 function addLi () {
     const element = document.getElementById("listOfGroups");
-    const text = document.getElementById("nameInput").value;
+    const input = document.getElementById("nameInput");
     const newElement = document.createElement("li");
-    newElement.textContent = text;
+    newElement.textContent = input.value;
     element.appendChild(newElement);
 
     const addButton = document.getElementById("createNewGroup")
@@ -28,6 +28,8 @@ function addLi () {
 
     const oldInput = document.getElementById("nameInput")
     oldInput.style.display = "none";
+
+    input.value = "";
 }
 
 
