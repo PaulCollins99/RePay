@@ -1,7 +1,7 @@
 function checkCriteria () {
-    let username = document.getElementById().value;
-    let password = document.getElementById().value;
-    let passCheck = document.getElementById().value
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let passCheck = document.getElementById("confirmPassword").value
 
     if (password === passCheck && password != null && password != "") {
         if (localStorage.getItem("login-username") !== username) {
