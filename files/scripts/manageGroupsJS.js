@@ -11,7 +11,7 @@ function addTextBox () {
     newButton.id = "createButton";
     newButton.addEventListener("click", addLi);
 
-    const oldAddButton = document.getElementById("addNewList")
+    const oldAddButton = document.getElementById("createNewGroup")
     oldAddButton.style.display = "none";
 
     element.appendChild(newElement);
@@ -28,7 +28,7 @@ function addLi () {
 
 
 function boot () {
-    window.addNewList.addEventListener("click", addTextBox)
+    window.createNewGroup.addEventListener("click", addTextBox)
     
 }
 
