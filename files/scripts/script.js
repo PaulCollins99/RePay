@@ -25,8 +25,14 @@ function onSignIn(googleUser) {
    // window.location.href = "menu.html";
   }
 
+function newAccount () {
+    localStorage.setItem("UTL", "NewUser")
+    window.location.href = 'createAccount.html'
+}
+
 function boot() {
     window.loginBtn.addEventListener("click", login);
+    window.createAccountBtn.addEventListener("click", newAccount)
     //create of a local storage "account".
     localStorage.setItem("login-username", "admin");
     localStorage.setItem("login-password", "pass");
