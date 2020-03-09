@@ -26,6 +26,15 @@ function addLi () {
     const newElement = document.createElement("li");
     newElement.textContent = text;
     element.appendChild(newElement);
+
+    const addButton = document.getElementById("createNewGroup")
+    addButton.style.display = "block";
+
+    const oldButton = document.getElementById("createButton")
+    oldButton.style.display = "none";
+
+    const oldInput = document.getElementById("nameInput")
+    oldInput.style.display = "none";
 }
 
 
