@@ -33,7 +33,7 @@ function addLi () {
 
 function boot () {
     window.createNewGroup.addEventListener("click", showTextBox)
-    window.newButton.addEventListener("click", addLi);
+    window.createButton.addEventListener("click", addLi);
 }
 
 window.addEventListener("load", boot);
