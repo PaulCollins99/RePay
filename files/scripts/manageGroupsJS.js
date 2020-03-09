@@ -7,7 +7,9 @@ function addTextBox () {
     newElement.placeholder = "Enter Name";
     
     const newButton = document.createElement("button");
-    newButton.textContent = "Create"
+    newButton.textContent = "Create";
+    newButton.id = "createButton";
+    newButton.addEventListener("click", addLi);
 
     const oldAddButton = document.getElementById("addNewList")
     oldAddButton.style.display = "none";
@@ -26,7 +28,8 @@ function addLi () {
 
 
 function boot () {
-    window.addNewList.addEventListener("click", addLi)
+    window.addNewList.addEventListener("click", addTextBox)
+    
 }
 
 window.addEventListener("load", boot);
