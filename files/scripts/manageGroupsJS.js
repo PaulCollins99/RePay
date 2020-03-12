@@ -65,7 +65,7 @@ function getListOfGroups() {
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-
+    //needs functionality to only add groups that you are a member of not all groups.
     const groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(e => {
         const array = JSON.parse(e);

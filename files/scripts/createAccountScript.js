@@ -17,8 +17,15 @@ function checkCriteria() {
 }
 
 function createAccount(username, password) {
-    localStorage.setItem("login-username", username);
-    localStorage.setItem("login-password", password);
+    //functinoallity required to check if username already exists
+    let detailsArray = JSON.parse(localStorage.getItem());
+
+    let wrapper = [username, password]
+
+    detailsArray.push(JSON.stringify(wrapper))
+
+    localStorage.setItem("login-details", JSON.stringify(detailsArray));
+
     localStorage.setItem("Username", username);
     console.log("Account created");
     login();
