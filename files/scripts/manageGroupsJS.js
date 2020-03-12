@@ -16,36 +16,65 @@ function showTextBox() {
 function addLi() {
     const element = document.getElementById("listOfGroups");
     const input = document.getElementById("nameInput");
-    const newElement = document.createElement("li");
-    newElement.textContent = input.value;
-    element.appendChild(newElement);
 
-    const addButton = document.getElementById("createNewGroup");
-    addButton.style.display = "block";
+    const existingGroups = getListOfGroups()
+    if (existingGroups.filter(e => e == input.value) == "") {
+        const newElement = document.createElement("li");
+        newElement.textContent = input.value;
+        element.appendChild(newElement);
 
-    const oldButton = document.getElementById("createButton");
-    oldButton.style.display = "none";
+        const addButton = document.getElementById("createNewGroup");
+        addButton.style.display = "block";
 
-    const oldInput = document.getElementById("nameInput");
-    oldInput.style.display = "none";
+        const oldButton = document.getElementById("createButton");
+        oldButton.style.display = "none";
 
-    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+        const oldInput = document.getElementById("nameInput");
+        oldInput.style.display = "none";
 
-    let groupName = input.value;
-    let username = localStorage.getItem("Username");
+        let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
-    let wrapper = [groupName, username];
+        let groupName = input.value;
+        let username = localStorage.getItem("Username");
 
-    groupArray.push(JSON.stringify(wrapper));
+        let wrapper = [groupName, username];
 
-    localStorage.setItem("groupList", JSON.stringify(groupArray));
-    
-    input.value = "";
+        groupArray.push(JSON.stringify(wrapper));
+
+        localStorage.setItem("groupList", JSON.stringify(groupArray));
+
+        input.value = "";
+    } else {
+        alert("group name already exists");
+        input.value = "";
+    }
+
+
+}
+
+function getListOfGroups() {
+    let names = []
+    const groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(e => {
+        const array = JSON.parse(e);
+        names.push(array[0]);
+    })
+    return names;
 }
 
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
+
+    const groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(e => {
+        const array = JSON.parse(e);
+        const name = array[0];
+        const element = document.getElementById("listOfGroups");
+        const newElement = document.createElement("li");
+        newElement.textContent = name;
+        element.appendChild(newElement);
+    })
 }
 
 window.addEventListener("load", boot);
