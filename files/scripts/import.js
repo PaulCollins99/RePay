@@ -1,3 +1,5 @@
+//doesnt really work as intended
+
 function importFile() {
     const element = document.getElementById('mainTextArea');
     const fileToImport = document.getElementById('fileToImport');
