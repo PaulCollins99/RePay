@@ -18,7 +18,7 @@ function checkCriteria() {
 
 function createAccount(username, password) {
     //functinoallity required to check if username already exists
-    let detailsArray = JSON.parse(localStorage.getItem());
+    let detailsArray = JSON.parse(localStorage.getItem("login-details"));
 
     let wrapper = [username, password]
 

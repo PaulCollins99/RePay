@@ -5,10 +5,18 @@ function login() {
 
 
     // we need our own password database just incase people dont want to use google sign in. Will just use local storage until this is stored
+    let detailsArray = JSON.parse(localStorage.getItem("login-details"));
+    detailsArray.forEach(e => {
+        let innerArray = JSON.stringify();
+        if (innerArray[0] == username && innerArray[1] == password) {
+            localStorage.setItem("Username", username);
+            window.location.href = 'managegroups.html';
+        } else {
+            alert("Incorrect Details");
+        }
+    })
     if (username == localStorage.getItem("login-username") && password == localStorage.getItem("login-password")) {
         console.log("Access Granted");
-        localStorage.setItem("Username", username);
-        window.location.href = 'managegroups.html';
     } else {
         console.log("Access Denied");
     }
@@ -35,6 +43,9 @@ function boot() {
 
     if (localStorage.getItem("groupList") == null) {
         localStorage.setItem("groupList", JSON.stringify([]));
+    }
+    if (localStorage.getItem("login-details") == null) {
+        localStorage.setItem("login-details", JSON.stringify([]));
     }
 }
 
