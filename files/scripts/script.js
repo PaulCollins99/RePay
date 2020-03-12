@@ -7,7 +7,9 @@ function login() {
     // we need our own password database just incase people dont want to use google sign in. Will just use local storage until this is stored
     let detailsArray = JSON.parse(localStorage.getItem("login-details"));
     detailsArray.forEach(e => {
-        let innerArray = JSON.stringify();
+        let innerArray = JSON.parse(e);
+        console.log(innerArray[0])
+        console.log(innerArray[1])
         if (innerArray[0] == username && innerArray[1] == password) {
             localStorage.setItem("Username", username);
             window.location.href = 'managegroups.html';
