@@ -32,6 +32,10 @@ function newAccount() {
 function boot() {
     window.loginBtn.addEventListener("click", login);
     window.createAccountBtn.addEventListener("click", newAccount)
+
+    if (localStorage.getItem("groupList") == null) {
+        localStorage.setItem("groupList", JSON.stringify([]));
+    }
 }
 
 window.addEventListener("load", boot);

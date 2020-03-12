@@ -2,13 +2,13 @@
 
 function showTextBox() {
 
-    const addButton = document.getElementById("createNewGroup")
+    const addButton = document.getElementById("createNewGroup");
     addButton.style.display = "none";
 
-    const oldButton = document.getElementById("createButton")
+    const oldButton = document.getElementById("createButton");
     oldButton.style.display = "block";
 
-    const oldInput = document.getElementById("nameInput")
+    const oldInput = document.getElementById("nameInput");
     oldInput.style.display = "block";
 }
 
@@ -20,15 +20,26 @@ function addLi() {
     newElement.textContent = input.value;
     element.appendChild(newElement);
 
-    const addButton = document.getElementById("createNewGroup")
+    const addButton = document.getElementById("createNewGroup");
     addButton.style.display = "block";
 
-    const oldButton = document.getElementById("createButton")
+    const oldButton = document.getElementById("createButton");
     oldButton.style.display = "none";
 
-    const oldInput = document.getElementById("nameInput")
+    const oldInput = document.getElementById("nameInput");
     oldInput.style.display = "none";
 
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+
+    let groupName = input.value;
+    let username = localStorage.getItem("Username");
+
+    let wrapper = [groupName, username];
+
+    groupArray.push(JSON.stringify(wrapper));
+
+    localStorage.setItem("groupList", JSON.stringify(groupArray));
+    
     input.value = "";
 }
 
