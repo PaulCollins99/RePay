@@ -2,19 +2,31 @@ function checkCriteria() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
     let passCheck = document.getElementById("confirmPassword").value
+    let existingNames = getListOfNames();
 
-    if (password === passCheck && password != null && password != "") {
-        if (localStorage.getItem("login-username") !== username) {
+    if (existingNames.filter(e => e == username) == "") {
+        if (password === passCheck && password != null && password != "") {
             createAccount(username, password);
         } else {
-            console.log("username already exists");
-
+            console.log("password invalid");
         }
     } else {
-        console.log("password invalid");
-
+        console.log("username already exists");
     }
+
 }
+
+
+function getListOfNames() {
+    let names = []
+    const nameArray = JSON.parse(localStorage.getItem("login-details"));
+    nameArray.forEach(e => {
+        const array = JSON.parse(e);
+        names.push(array[0]);
+    })
+    return names;
+}
+
 
 function createAccount(username, password) {
     //functinoallity required to check if username already exists

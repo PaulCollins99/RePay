@@ -13,15 +13,10 @@ function login() {
         if (innerArray[0] == username && innerArray[1] == password) {
             localStorage.setItem("Username", username);
             window.location.href = 'managegroups.html';
-        } else {
-            alert("Incorrect Details");
-        }
+        } 
     })
-    if (username == localStorage.getItem("login-username") && password == localStorage.getItem("login-password")) {
-        console.log("Access Granted");
-    } else {
-        console.log("Access Denied");
-    }
+    
+    alert("Incorrect Details");
 }
 
 //googles premaid function for retrieving data from google sign in

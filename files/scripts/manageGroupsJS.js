@@ -65,15 +65,17 @@ function getListOfGroups() {
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-    //needs functionality to only add groups that you are a member of not all groups.
+    //needs functionality to only add groups that you are a member of not all 
     const groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(e => {
         const array = JSON.parse(e);
-        const name = array[0];
-        const element = document.getElementById("listOfGroups");
-        const newElement = document.createElement("li");
-        newElement.textContent = name;
-        element.appendChild(newElement);
+        if (array[1] == localStorage.getItem("Username")) {
+            const name = array[0];
+            const element = document.getElementById("listOfGroups");
+            const newElement = document.createElement("li");
+            newElement.textContent = name;
+            element.appendChild(newElement);
+        }
     })
 }
 
