@@ -2,20 +2,35 @@
 <html lang=en>
 
 <head>
-  <meta charset="utf-8">
-  <title>Manage Groups</title>
-  <script src="scripts/manageGroupsJS.js"></script>
-  <link rel="stylesheet" type="text/css" href="./style/stylesheet.css" />
+    <meta charset="utf-8">
+    <title>Manage Groups</title>
+    <!--<link rel="stylesheet" type="text/css" href="./style/stylesheet.css" />-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="scripts/manageGroupsJS.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body id="MangeGroups">
-  <h1>Manage Groups</h1>
-  <div id="manageGroupsDiv">
-    <ul id="listOfGroups">
-      <li><a href="#">Example Group</a></li>
-    </ul>
-    <button id="createNewGroup">Create new group</button>
-    <input placeholder="Group Name" id="nameInput" style="display: none;">
-    <button id="createButton" style="display: none;">Create</button>
-  </div>
+    <nav class="purple">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#!" class="left"><i class="material-icons">arrow_back</i></a>
+                <a href="#!" class="brand-logo center">RE:Pay</a>
+                <a href="#!" class="right"><i class="material-icons">more_vert</i></a>
+                <a href="#!" class="right"><i class="material-icons">search</i></a>
+            </div>
+        </div>
+    </nav>
+    <div id="manageGroupsDiv" class="container">        
+        <div id="listOfGroups" class="collection">
+            <a href="#!" class="collection-item">Example Group</a>
+        </div>
+        <input placeholder="Group Name" id="nameInput" style="display: none;">
+        <div class="fixed-action-btn">
+            <a id="createNewGroup" class="btn-floating btn-large waves-effect waves-light purple"><i class="material-icons">add</i></a>
+        </div>
+        <button id="createButton" style="display: none;">Create</button>
+    </div>
 </body>

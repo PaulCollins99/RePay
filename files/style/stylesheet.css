@@ -6,26 +6,26 @@ h1 {
   color: black;
   text-align: center;
   font-family: Helvetica, arial;
-  font-size: 40px;
+  font-size: 40em;
   background-color: DarkViolet;
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 25em;
   font-family: Helvetica, arial;
   text-align: center;
 
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 20em;
   text-align: center;
   text-decoration: underline;
 
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 22em;
   text-align: center;
 }
 
@@ -33,5 +33,4 @@ p {
   font-family: Helvetica, arial;
   text-align: center;
   color: black;
-  font-size: 18px;
 }

@@ -19,8 +19,9 @@ function addLi() {
 
     const existingGroups = getListOfGroups()
     if (existingGroups.filter(e => e == input.value) == "") {
-        const newElement = document.createElement("li");
+        const newElement = document.createElement("a");
         newElement.textContent = input.value;
+        newElement.className = "collection-item";
         element.appendChild(newElement);
 
         const addButton = document.getElementById("createNewGroup");
@@ -72,8 +73,9 @@ function boot() {
         if (array[1] == localStorage.getItem("Username")) {
             const name = array[0];
             const element = document.getElementById("listOfGroups");
-            const newElement = document.createElement("li");
+            const newElement = document.createElement("a");
             newElement.textContent = name;
+            newElement.className = "collection-item";
             element.appendChild(newElement);
         }
     })
