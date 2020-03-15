@@ -1,5 +1,3 @@
-//function to add new list item into the group list
-
 function showTextBox() {
 
     const addButton = document.getElementById("createNewGroup");
@@ -12,10 +10,8 @@ function showTextBox() {
     oldInput.style.display = "block";
 }
 
-function handlerForEachNewLi(e) {
-    console.log("clicked");
-    console.log(e);
-    localStorage.setItem("groupToLoad", e.textContent);
+function handlerForEachNewLi(e) {    
+    localStorage.setItem("groupToLoad", e.target.text);
     window.location.href = "template.html";
 }
 
@@ -30,7 +26,7 @@ function addLi() {
         newElement.textContent = input.value;
         newElement.className = "collection-item";
         element.appendChild(newElement);
-        element.addEventListener("click", handlerForEachNewLi)
+        newElement.addEventListener("click", handlerForEachNewLi);
 
         const addButton = document.getElementById("createNewGroup");
         addButton.style.display = "block";
@@ -74,7 +70,6 @@ function getListOfGroups() {
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-    //needs functionality to only add groups that you are a member of not all 
     const groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(e => {
         const array = JSON.parse(e);
@@ -84,6 +79,7 @@ function boot() {
             const newElement = document.createElement("a");
             newElement.textContent = name;
             newElement.className = "collection-item";
+            newElement.addEventListener("click", handlerForEachNewLi);
             element.appendChild(newElement);
         }
     })
