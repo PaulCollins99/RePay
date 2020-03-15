@@ -2,7 +2,7 @@ function addUser(user) {
     let groupToLoad = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
-    for (let x = 0; x < groupArray.length -1; x ++) {
+    for (let x = 0; x < groupArray.length - 1; x++) {
         let array = JSON.parse(groupArray[x])
         if (array[0] == groupToLoad) {
 
@@ -14,19 +14,7 @@ function addUser(user) {
             localStorage.setItem("groupList", JSON.stringify(groupArray));
         }
     }
-
-    //groupArray.forEach(element => {
-    //    let array = JSON.parse(element);
-    //    if (array[0] == groupToLoad) {
-//
-    //        let users = JSON.parse(array[1]);
-    //        users.push(user);
-    //        array[1] = JSON.stringify(users);
-    //        element = JSON.stringify(array);
-    //        console.log(element);
-    //        console.log(JSON.stringify(groupArray))
-    //    }
-    //})
+}
 }
 
 
