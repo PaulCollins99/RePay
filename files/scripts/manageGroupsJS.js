@@ -13,7 +13,9 @@ function showTextBox() {
 }
 
 function handlerForEachNewLi(e) {
-    localStorage.setItem("groupToLoad", e,value);
+    console.log("clicked");
+    console.log(e);
+    localStorage.setItem("groupToLoad", e.textContent);
     window.location.href = "template.html";
 }
 
@@ -23,7 +25,7 @@ function addLi() {
     const input = document.getElementById("nameInput");
 
     const existingGroups = getListOfGroups()
-    if (existingGroups.filter(e => e == input.value) == "") {
+    if (existingGroups.filter(e => e == input.value) == "" && input.value != "") {
         const newElement = document.createElement("a");
         newElement.textContent = input.value;
         newElement.className = "collection-item";
