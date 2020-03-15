@@ -1,14 +1,30 @@
 function addUser(user) {
-    let groupToLoad = localStorage.getItem("groupToLoad");
+    let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
     for (let x = 0; x < groupArray.length - 1; x++) {
         let array = JSON.parse(groupArray[x])
-        if (array[0] == groupToLoad) {
+        if (array[0] == groupToEdit) {
 
             let users = JSON.parse(array[1]);
             users.push(user);
             array[1] = JSON.stringify(users);
+            let element = JSON.stringify(array);
+            groupArray[x] = element
+            localStorage.setItem("groupList", JSON.stringify(groupArray));
+        }
+    }
+}
+
+function changeGroupName(groupName) {
+    let groupToEdit = localStorage.getItem("groupToLoad");
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+
+    for (let x = 0; x < groupArray.length - 1; x++) {
+        let array = JSON.parse(groupArray[x])
+        if (array[0] == groupToEdit) {
+
+            array[0] = groupName;
             let element = JSON.stringify(array);
             groupArray[x] = element
             localStorage.setItem("groupList", JSON.stringify(groupArray));
