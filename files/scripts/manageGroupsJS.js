@@ -12,6 +12,11 @@ function showTextBox() {
     oldInput.style.display = "block";
 }
 
+function handlerForEachNewLi(e) {
+    localStorage.setItem("groupToLoad", e,value);
+    window.location.href = "template.html";
+}
+
 
 function addLi() {
     const element = document.getElementById("listOfGroups");
@@ -23,6 +28,7 @@ function addLi() {
         newElement.textContent = input.value;
         newElement.className = "collection-item";
         element.appendChild(newElement);
+        element.addEventListener("click", handlerForEachNewLi)
 
         const addButton = document.getElementById("createNewGroup");
         addButton.style.display = "block";
