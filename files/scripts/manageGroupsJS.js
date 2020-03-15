@@ -68,9 +68,14 @@ function getListOfGroups() {
     return names;
 }
 
+function back() {
+    window.location.href = "index.html";
+}
+
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
+    window.backArrow.addEventListener("click", back);
 
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(element => {
