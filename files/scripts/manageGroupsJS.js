@@ -71,19 +71,23 @@ function getListOfGroups() {
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-    const groupArray = JSON.parse(localStorage.getItem("groupList"));
-    groupArray.forEach(e => {
-        const array = JSON.parse(e);
-        if (array[1] == localStorage.getItem("Username")) {
-            const name = array[0];
+
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(element => {
+        let array = JSON.parse(element);
+        let users = JSON.parse(array[1]);
+        users.forEach (e => {
+            if (e == localStorage.getItem("Username")) {
+                const name = array[0];
             const element = document.getElementById("listOfGroups");
             const newElement = document.createElement("a");
             newElement.textContent = name;
             newElement.className = "collection-item";
             newElement.addEventListener("click", handlerForEachNewLi);
             element.appendChild(newElement);
-        }
-    })
+            }
+        })
+    });
 }
 
 window.addEventListener("load", boot);

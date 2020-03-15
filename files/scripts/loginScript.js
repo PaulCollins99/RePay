@@ -44,6 +44,9 @@ function boot() {
     if (localStorage.getItem("login-details") == null) {
         localStorage.setItem("login-details", JSON.stringify([]));
     }
+    if (localStorage.getItem("userList") == null) {
+        localStorage.setItem("userList", JSON.stringify([]));
+    }
 }
 
 window.addEventListener("load", boot);

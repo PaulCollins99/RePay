@@ -37,6 +37,10 @@ function createAccount(username, password) {
     detailsArray.push(JSON.stringify(wrapper))
 
     localStorage.setItem("login-details", JSON.stringify(detailsArray));
+    
+    let users = JSON.parse(localStorage.getItem("userList"));
+    users.push(username);
+    localStorage.setItem("userList", JSON.stringify(users));
 
     localStorage.setItem("Username", username);
     console.log("Account created");
