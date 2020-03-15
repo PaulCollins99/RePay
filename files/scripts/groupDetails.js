@@ -15,7 +15,7 @@ function addUser(user) {
         }
     }
 }
-}
+
 
 
 function boot() {
