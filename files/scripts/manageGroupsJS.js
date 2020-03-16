@@ -1,5 +1,3 @@
-//function to add new list item into the group list
-
 function showTextBox() {
 
     const addButton = document.getElementById("createNewGroup");
@@ -12,16 +10,23 @@ function showTextBox() {
     oldInput.style.display = "block";
 }
 
+function handlerForEachNewLi(e) {    
+    localStorage.setItem("groupToLoad", e.target.text);
+    window.location.href = "template.html";
+}
+
 
 function addLi() {
     const element = document.getElementById("listOfGroups");
     const input = document.getElementById("nameInput");
 
     const existingGroups = getListOfGroups()
-    if (existingGroups.filter(e => e == input.value) == "") {
-        const newElement = document.createElement("li");
+    if (existingGroups.filter(e => e == input.value) == "" && input.value != "") {
+        const newElement = document.createElement("a");
         newElement.textContent = input.value;
+        newElement.className = "collection-item";
         element.appendChild(newElement);
+        newElement.addEventListener("click", handlerForEachNewLi);
 
         const addButton = document.getElementById("createNewGroup");
         addButton.style.display = "block";
@@ -35,9 +40,10 @@ function addLi() {
         let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
         let groupName = input.value;
-        let username = localStorage.getItem("Username");
+        let username = []; 
+        username.push(localStorage.getItem("Username"));
 
-        let wrapper = [groupName, username];
+        let wrapper = [groupName, JSON.stringify(username)];
 
         groupArray.push(JSON.stringify(wrapper));
 
@@ -62,21 +68,31 @@ function getListOfGroups() {
     return names;
 }
 
+function back() {
+    window.location.href = "index.html";
+}
+
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-    //needs functionality to only add groups that you are a member of not all 
-    const groupArray = JSON.parse(localStorage.getItem("groupList"));
-    groupArray.forEach(e => {
-        const array = JSON.parse(e);
-        if (array[1] == localStorage.getItem("Username")) {
-            const name = array[0];
+    window.backArrow.addEventListener("click", back);
+
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(element => {
+        let array = JSON.parse(element);
+        let users = JSON.parse(array[1]);
+        users.forEach (e => {
+            if (e == localStorage.getItem("Username")) {
+                const name = array[0];
             const element = document.getElementById("listOfGroups");
-            const newElement = document.createElement("li");
+            const newElement = document.createElement("a");
             newElement.textContent = name;
+            newElement.className = "collection-item";
+            newElement.addEventListener("click", handlerForEachNewLi);
             element.appendChild(newElement);
-        }
-    })
+            }
+        })
+    });
 }
 
 window.addEventListener("load", boot);
