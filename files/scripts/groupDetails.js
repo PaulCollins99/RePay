@@ -39,12 +39,18 @@ function deleteUser(user) {
         let array = JSON.parse(groupArray[x])
         if (array[0] == groupToEdit) {
             let currentUsers = JSON.parse(array[1])
-            if (currentUsers > 1) {
+            let size = currentUsers.length
+            if (currentUsers.length > 1) {
                 let afterRemove = currentUsers.filter(e => e !== user)
-                array[1] = JSON.stringify(afterRemove);
+                if (size !== afterRemove.length) {
+                    array[1] = JSON.stringify(afterRemove);
                 let element = JSON.stringify(array)
                 groupArray[x] = element
                 localStorage.setItem("groupList", JSON.stringify(groupArray));
+                } else {
+                    alert("user does not exist")
+                }
+                
             } else alert("unable to remove last member of group. To do this please delete the group an")
 
         }
