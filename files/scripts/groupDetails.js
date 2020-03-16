@@ -3,20 +3,24 @@ function addUser(user) {
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     let potentialUsers = JSON.parse(localStorage.getItem("userList"));
     potentialUsers.forEach(e => {
-        if (e == user) {
+        console.log(e)
+        console.log(e.length);
+        console.log(user.length);
+        if (e === user && e.length == user.length) {
             for (let x = 0; x < groupArray.length; x++) {
                 let array = JSON.parse(groupArray[x]);
                 if (array[0] == groupToEdit) {
                     let users = JSON.parse(array[1]);
-                    let check = users.filter (e => e = user)
+                    let check = users.filter(e => e === user)
+                    console.log(check);
+
                     if (check == "") {
                         users.push(user);
                         array[1] = JSON.stringify(users);
                         let element = JSON.stringify(array);
                         groupArray[x] = element;
                         localStorage.setItem("groupList", JSON.stringify(groupArray));
-                    }
-                    else {
+                    } else {
                         alert("User is already a member of the group");
                     }
                 }
@@ -26,6 +30,25 @@ function addUser(user) {
         }
     });
 
+}
+
+function deleteUser(user) {
+    let groupToEdit = localStorage.getItem("groupToLoad");
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    for (let x = 0; x < groupArray.length; x++) {
+        let array = JSON.parse(groupArray[x])
+        if (array[0] == groupToEdit) {
+            let currentUsers = JSON.parse(array[1])
+            if (currentUsers > 1) {
+                let afterRemove = currentUsers.filter(e => e !== user)
+                array[1] = JSON.stringify(afterRemove);
+                let element = JSON.stringify(array)
+                groupArray[x] = element
+                localStorage.setItem("groupList", JSON.stringify(groupArray));
+            } else alert("unable to remove last member of group. To do this please delete the group an")
+
+        }
+    }
 }
 
 function changeGroupName(groupName) {
