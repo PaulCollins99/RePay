@@ -11,7 +11,7 @@ function addUser(user) {
                 let array = JSON.parse(groupArray[x]);
                 if (array[0] == groupToEdit) {
                     let users = JSON.parse(array[1]);
-                    let check = users.filter(e => e === user)
+                    let check = users.filter(e => e === user);
                     console.log(check);
 
                     if (check == "") {
@@ -36,22 +36,22 @@ function deleteUser(user) {
     let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     for (let x = 0; x < groupArray.length; x++) {
-        let array = JSON.parse(groupArray[x])
+        let array = JSON.parse(groupArray[x]);
         if (array[0] == groupToEdit) {
-            let currentUsers = JSON.parse(array[1])
-            let size = currentUsers.length
+            let currentUsers = JSON.parse(array[1]);
+            let size = currentUsers.length;
             if (currentUsers.length > 1) {
-                let afterRemove = currentUsers.filter(e => e !== user)
+                let afterRemove = currentUsers.filter(e => e !== user);
                 if (size !== afterRemove.length) {
                     array[1] = JSON.stringify(afterRemove);
-                let element = JSON.stringify(array)
-                groupArray[x] = element
-                localStorage.setItem("groupList", JSON.stringify(groupArray));
+                    let element = JSON.stringify(array);
+                    groupArray[x] = element;
+                    localStorage.setItem("groupList", JSON.stringify(groupArray));
                 } else {
-                    alert("user does not exist")
+                    alert("user does not exist");
                 }
-                
-            } else alert("unable to remove last member of group. To do this please delete the group an")
+
+            } else alert("unable to remove last member of group. To do this please delete the group an");
 
         }
     }
