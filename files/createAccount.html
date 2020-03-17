@@ -6,16 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/indexstyle.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./scripts/createAccountScript.js"></script>
     <title>Create Account</title>
 </head>
 
 <body>
-    <input type="text" placeholder="Username" id="username"></input>
-    <Input type="text" placeholder="Password" id="password"></Input>
-    <Input type="text" placeholder="Re-Type Password" id="confirmPassword"></Input>
-    <button type="button" id="createBtn">Create account and login</button>
+    <div class="container center-align">
+        <img src="/logo.PNG">
+        <div class="input-field">
+            <input id="username" type="text">
+            <label for="username">Username</label>
+        </div>     
+        <div class="input-field">
+            <input id="password" type="password">
+            <label for="password">Password</label>
+        </div>
+        <div class="input-field">
+            <input id="confirmPassword" type="password">
+            <label for="confirmPassword">Re-Type Password</label>
+        </div>
+        <a class="waves-effect waves-light btn" id="createBtn">Create account and login</a>
+    </div>
 </body>
-
 </html>

@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RePay Login</title>
-    <script src="./scripts/loginScript.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta name="google-signin-client_id"
         content="677731007317-fa0nj350uv8if5r4gqdp1koq13qv6s49.apps.googleusercontent.com">
-    <meta name="google-signin-client_id"
-        content="677731007317-83u848r5ggmakbuk3c6o53ekj7r74q41.apps.googleusercontent.com">
+
+    <title>RePay Login</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/indexstyle.css" />
+    
+    <script src="./scripts/loginScript.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
-
 <body>
-    <main>
-        <input type="text" placeholder="Username" id="username"></input>
-        <Input type="text" placeholder="Password" id="password"></Input>
-        <button type="button" id="loginBtn">Login</button>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
-        <button type="button" id="createAccountBtn">Create Account</button>
-    </main>
-
-
+    <div class="container center-align">
+        <img src="/logo.PNG">
+        <div class="input-field">
+            <input id="username" type="text">
+            <label for="username">Username</label>
+        </div>     
+        <div class="input-field">
+            <input id="password" type="password">
+            <label for="password">Password</label>
+        </div>
+        <a class="waves-effect waves-light btn" id="loginBtn">Login</a>
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>           
+        <a class="waves-effect waves-light btn" id="createAccountBtn">Create Account</a>
+        <a class="waves-effect waves-light btn" id="forgottenPassword">Forgot Password</a>
+    </div>
 </body>
-
 </html>

@@ -1,0 +1,36 @@
+.collection,
+.collection-item {
+    border: none !important;
+}
+
+@media (max-width: 600px) {    
+    .mobile {
+        width: 100%;
+    }
+
+    .collection-item {
+        padding-left: 5% !important;  
+        padding-right: 5% !important;
+    }
+}
+
+nav, #createNewGroup {
+    background-color: rgb(175, 52, 180);
+}
+
+input:focus {
+    border-bottom: 1px solid rgb(175, 52, 180) !important;
+    box-shadow: none !important;
+}
+
+.collection-item:hover {
+    background-color: rgb(204, 204, 204) !important;
+}
+
+html, .collection-item {
+    background-color: rgb(238, 238, 238) !important;
+}
+
+.collection-item {
+    color: rgb(0, 0, 0) !important;
+}
