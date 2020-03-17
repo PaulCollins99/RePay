@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Manage Groups</title>
-    <!--<link rel="stylesheet" type="text/css" href="./style/stylesheet.css" />-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./style/managegroupsstyle.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="scripts/manageGroupsJS.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -13,23 +13,25 @@
 </head>
 
 <body id="MangeGroups">
-    <nav class="purple">
+    <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#!" class="left" id="backArrow"><i class="material-icons">arrow_back</i></a>
+                <a href="#!" class="left circle waves-effect waves-light"><i class="material-icons">arrow_back</i></a>
                 <a href="#!" class="brand-logo center">RE:Pay</a>
-                <a href="#!" class="right"><i class="material-icons">more_vert</i></a>
-                <a href="#!" class="right"><i class="material-icons">search</i></a>
+                <a href="#!" class="right circle waves-effect waves-light"><i class="material-icons">more_vert</i></a>
+                <a href="#!" class="right circle waves-effect waves-light"><i class="material-icons">search</i></a>
             </div>
         </div>
     </nav>
-    <div id="manageGroupsDiv" class="container">        
-        <div id="listOfGroups" class="collection">
-            <a href="#!" class="collection-item">Example Group</a>
+    <div id="manageGroupsDiv" class="container mobile">        
+        <div id="listOfGroups" class="collection ">
+            <a href="#!" class="collection-item waves-effect waves-light">Example Group</a>
         </div>
+    </div>
+    <div class="container">
         <input placeholder="Group Name" id="nameInput" style="display: none;">
         <div class="fixed-action-btn">
-            <a id="createNewGroup" class="btn-floating btn-large waves-effect waves-light purple"><i class="material-icons">add</i></a>
+            <a id="createNewGroup" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
         </div>
         <button id="createButton" style="display: none;">Create</button>
     </div>

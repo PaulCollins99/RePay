@@ -1,0 +1,41 @@
+.container {
+    max-width: 380px;
+}
+
+img {
+    margin: 12% 0 6%;
+    width: 55%;
+}
+
+.row {
+    margin-bottom: 0;
+}
+
+.btn:hover {
+    background-color: rgb(223, 223, 223);
+}
+
+.btn {
+    width: 66%;
+    margin: 0 auto 4%;
+    background-color: rgb(214, 215, 215);
+    color: rgb(0, 0, 0);
+}
+
+.g-signin2 {
+    width: 120px;
+    margin: 0 auto 4%;
+}
+
+html {
+    background-color: rgb(238, 238, 238) !important;
+}
+
+input:focus {
+    border-bottom: 1px solid rgb(175, 52, 180) !important;
+    box-shadow: none !important;
+}
+
+label.active {
+    color: rgb(175, 52, 180) !important;
+}
