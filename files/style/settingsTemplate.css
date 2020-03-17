@@ -40,6 +40,7 @@ p {
  width: 60px;
  height: 34px;
  vertical-align: middle;
+ align-self: flex-end;
 }
 .switch input {
  opacity: 0;
