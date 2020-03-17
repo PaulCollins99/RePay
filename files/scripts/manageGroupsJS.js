@@ -24,7 +24,8 @@ function addLi() {
     if (existingGroups.filter(e => e == input.value) == "" && input.value != "") {
         const newElement = document.createElement("a");
         newElement.textContent = input.value;
-        newElement.className = "collection-item";
+        newElement.href="#!";
+        newElement.className = "collection-item waves-effect waves-light";
         element.appendChild(newElement);
         newElement.addEventListener("click", handlerForEachNewLi);
 
@@ -87,7 +88,8 @@ function boot() {
             const element = document.getElementById("listOfGroups");
             const newElement = document.createElement("a");
             newElement.textContent = name;
-            newElement.className = "collection-item";
+            newElement.href="#!";
+            newElement.className = "collection-item waves-effect waves-light";
             newElement.addEventListener("click", handlerForEachNewLi);
             element.appendChild(newElement);
             }
