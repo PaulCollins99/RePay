@@ -1,22 +1,21 @@
-
 body {
   font-family: Helvetica, arial;
 }
 
 .navbar {
-background-color: #D733FF;
-position: fixed;
-top: 0;
-max-width: 100%;
-width: 100%; // navbar used to implement a ribbon at the top on the home screen in dark purple
+  background-color: #D733FF;
+  position: fixed;
+  top: 0;
+  max-width: 100%;
+  width: 100%; // navbar used to implement a ribbon at the top on the home screen in dark purple
 }
 
 .navbar2 {
-background-color: #0040ff;
-position: fixed;
-top: 0;
-max-width: 100%;
-width: 100%;
+  background-color: #0040ff;
+  position: fixed;
+  top: 0;
+  max-width: 100%;
+  width: 100%;
 }
 
 h1 {
@@ -24,6 +23,7 @@ h1 {
   font-family: Helvetica, arial;
   text-align: center;
   font-style: italic;
+}
 
 p {
   font-family: Helvetica, arial;
@@ -33,13 +33,16 @@ p {
 }
 
 p2 {
-font-family: Helvetica, arial;
-text-align: center;
-color:black;
-text-style: italic;
-font-size: 18px;
+  font-family: Helvetica, arial;
+  text-align: center;
+  color: black;
+  text-style: italic;
+  font-size: 18px;
 }
 
-.button1 {background-color: #e7e7e7; color: black;
-font-size: 16px;
-} //Gray button
+.button1 {
+  background-color: #e7e7e7;
+  color: black;
+  font-size: 16px;
+  //Gray button
+}
