@@ -1,0 +1,72 @@
+body {
+  font-family: Helvetica, arial;
+}
+
+h1 {
+  color: yellow;
+  text-align: center;
+  font-family: Helvetica, arial;
+  font-size: 6em;
+  background-color: DarkViolet;
+}
+
+h2 {
+  font-size: 4em;
+  text-align: left;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.header {
+  padding: 2px 3px;
+  background: DarkViolet;
+  color: DarkViolet;
+}
+
+.topnav {
+  background-color: DarkViolet;
+  overflow: hidden;
+}
+
+.topnav a {
+  float: left;
+  color: Black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav b {
+  
+}
+
+.topnav a:hover {
+  background-color: Purple;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: BlueViolet;
+  color: white;
+}
+
+h3 {
+  font-size: 2em;
+  text-align: left;
+  font-weight: bold;
+}
+
+p {
+  font-family: Helvetica, arial;
+  text-align: left;
+  color: black;
+  font-size: 1em;
+}
+p2 {
+  font-family: Helvetica, arial;
+  text-align: left;
+  color: black;
+  font-size: 1em;
+  font-weight: bold;
+}
