@@ -6,26 +6,26 @@ h1 {
   color: yellow;
   text-align: center;
   font-family: Helvetica, arial;
-  font-size: 6em;
+  font-size: 3em;
   background-color: DarkViolet;
 }
 
 h2 {
-  font-size: 4em;
+  font-size: 2em;
   font-family: Helvetica, arial;
   text-align: center;
 
 }
 
 h3 {
-  font-size: 20em;
+  font-size: 1em;
   text-align: center;
   text-decoration: underline;
 
 }
 
 h4 {
-  font-size: 22em;
+  font-size: 1em;
   text-align: center;
 }
 
