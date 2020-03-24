@@ -6,7 +6,7 @@ const express = require('express');
 
 const app = express();
 
-app.use('../', express.static('files', { extensions: ['htm', 'html'] }));
+app.use('/', express.static('files', { extensions: ['htm', 'html'] }));
 
 function printHelloWorld () {
   console.log("Hello, world!");
