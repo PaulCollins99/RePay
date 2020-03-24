@@ -29,3 +29,8 @@ Connect to database
     -
     
 - Add style to html
+
+# Testing Documentation
+
+
+For testing we will be using a module called mocha. This is a unit testing module that will integrate with a service called travis. Travis is an automated service that runs your test on a vm whenever you commit on github.
