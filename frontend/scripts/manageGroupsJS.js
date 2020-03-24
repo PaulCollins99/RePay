@@ -12,7 +12,7 @@ function showTextBox() {
 
 function handlerForEachNewLi(e) {    
     localStorage.setItem("groupToLoad", e.target.text);
-    window.location.href = "template.html";
+    window.location.href = "manageGroupTemplate.html";
 }
 
 

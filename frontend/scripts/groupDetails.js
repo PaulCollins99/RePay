@@ -90,6 +90,9 @@ function deleteGroup() {
     window.location.href = "managegroups.html";
 }
 
+function loadUploadBill () {
+    window.location.href = "uploadBill.html";
+}
 
 
 function boot() {
