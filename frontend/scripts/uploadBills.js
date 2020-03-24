@@ -13,7 +13,15 @@ function importFile() {
 }
 
 function addSelectedNames(e) {
-  console.log(e.target.textContent);
+  let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"))
+  if (currentUsersAdded.filter(name => name == e.target.textContent) == [""]) {
+    console.log(e.target.textContent);
+  }
+  else {
+    console.log("already there");
+    
+  }
+  
 
 }
 
@@ -28,7 +36,7 @@ function selectAll() {
       users.forEach(element => userArray.push(element))
     }
   });
-  console.log(userArray);
+  localStorage.setItem("usersToBill", JSON.stringify(users));
 }
 
 function importBill(total, arrayOfGroupMembers) {
