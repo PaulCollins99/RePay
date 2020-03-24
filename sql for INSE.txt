@@ -10,6 +10,12 @@ user_passwordHash varchar(30) not null,
 user_memberOf varchar(60)
 );
 
+create table testTable(
+
+testID varchar(8) primary key,
+test_fname varchar(15) not null
+)
+
 \d+ user;
 
 create table groups(
