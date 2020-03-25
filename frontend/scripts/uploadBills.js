@@ -6,6 +6,9 @@
 
 //store local storage for the time being
 
+/**
+ * Function to load all groups that the user is a member of
+ */
 function loadGroups() {
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
   groupArray.forEach(element => {
@@ -24,7 +27,10 @@ function loadGroups() {
       }
     })
   });
-
+  /**
+   * Function to store the group that is clicked on
+   * @param {*} e Clicked element
+   */
   function selectGroup(e) {
     localStorage.setItem("usersToBill", JSON.stringify([]));
     localStorage.setItem("groupToLoad", e.target.textContent);
@@ -35,6 +41,10 @@ function loadGroups() {
 
 }
 
+/**
+ * Function to store the user that is clicked on
+ * @param {*} e Clicked element 
+ */
 function addSelectedNames(e) {
   let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"));
 
@@ -53,7 +63,9 @@ function addSelectedNames(e) {
     localStorage.setItem("usersToBill", JSON.stringify(currentUsersAdded));
   }
 }
-
+/**
+ * Function to select every user that is a member of the group
+ */
 function selectAll() {
   let userArray = [];
   let groupToLoad = localStorage.getItem("groupToLoad");
@@ -69,6 +81,9 @@ function selectAll() {
   hideUsers();
 }
 
+/**
+ * Function to load all users of that group
+ */
 function loadUserList() {
   let groupToLoad = localStorage.getItem("groupToLoad");
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
@@ -90,7 +105,9 @@ function loadUserList() {
 }
 
 //check if selected users is emptyu
-
+/**
+ * Function to hide the user selection section and display the adding bill section
+ */
 function hideUsers () {
   if (JSON.parse(localStorage.getItem("usersToBill")).length == 0) {
     alert("Please select a user");
@@ -99,6 +116,10 @@ function hideUsers () {
     document.getElementById("addingTheBill").style.display = "block";
   }
 }
+
+/**
+ * Boot function with all things that need to be completed on load
+ */
 
 function boot() {
   loadGroups();
