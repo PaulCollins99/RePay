@@ -8,30 +8,46 @@
     <title>RePay Statistics Page</title>
     <link rel="stylesheet" type="text/css" href="./style/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="./style/statsstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="./scripts/stats.js"></script>
     <script src="./scripts/materialize.min.js"></script>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">RePay</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#!" class="brand-logo">RePay</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="Managegroups.html">Groups</a></li>
+                    <li><a href="uploadbill.html">Upload Bills</a></li>
+                    <li><a href="Settings.html">Settings</a></li>
+                    <li class="active"><a href="statspage.html">Statistics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li><a href="Managegroups.html">Groups</a></li>
-        <li><a href ="uploadbill.html">Upload Bills</a></li>
-        <li> <a href ="Settings.html">Settings</a></li>
-        <li class="active"> <a href = "statspage.html">Statistics</a></li>
+        <li><a href="uploadbill.html">Upload Bills</a></li>
+        <li><a href="Settings.html">Settings</a></li>
+        <li class="active"><a href ="statspage.html">Statistics</a></li>
+    </ul>
 
-      </ul>
+    <div class="container">
+        <div class="collection">
+            <a href="#!" class="collection-item active">Example Group 1</a>
+            <a href="#!" class="collection-item">Example Group 2</a>
+            <a href="#!" class="collection-item">Example Group 3</a>
+        </div>
     </div>
-  </nav>
-    
-      <div class="collection">
-        <a href="#!" class="collection-item active">Example Group 1</a>
-        <a href="#!" class="collection-item">Example Group 2</a>
-        <a href="#!" class="collection-item">Example Group 3</a>
-      </div>
-</body>
 
+<script>
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu,{});
+</script>
+</body>
 </html>

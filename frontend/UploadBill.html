@@ -8,48 +8,59 @@
     <title>RePay Upload Bill</title>
     <link rel="stylesheet" type="text/css" href="./style/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="./style/uploadbillstyle.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="./scripts/uploadBills.js"></script>
     <script src="./scripts/materialize.min.js"></script>
 </head>
 
 <body>
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">RePay</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#!" class="brand-logo">RePay</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="Managegroups.html">Groups</a></li>
+                    <li class="active"><a href ="uploadbill.html">Upload Bills</a></li>
+                    <li><a href="Settings.html">Settings</a></li>
+                    <li><a href="statspage.html">Statistics</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li><a href="Managegroups.html">Groups</a></li>
-        <li class="active"><a href="uploadbill.html">Upload Bills</a></li>
-        <li> <a href="Settings.html">Settings</a></li>
-        <li> <a href ="statspage.html">Statistics</a></li>
-      </ul>
+        <li class ="active"><a href ="uploadbill.html">Upload Bills</a></li>
+        <li><a href="Settings.html">Settings</a></li>
+        <li><a href="statspage.html">Statistics</a></li>
+    </ul>
+    
+    <div class="container">
+        <section id="groupSelection">
+            <div id="listOfGroups" class="collection "></div>
+        </section>
+
+        <section id="userSelection" style="display: none;">
+            <button type="button" id="selectAllBtn">Select All Group Members</button>
+            <div id="listofUsers" class="collection "></div>
+            <button type="button" id="nextBtn">Next</button>
+        </section>
+        <section id="addingTheBill" style="display: none;">
+        <!--
+
+          Some sort of input for adding in bills
+
+        -->
+            <input id="totalInput">
+            <button type="button" id="inputButton">Input and Split Bill </button>
+        </section>
     </div>
-  </nav>
 
-  <section id="groupSelection">
-    <div id="listOfGroups" class="collection ">
-    </div>
-  </section>
-
-  <section id="userSelection" style="display: none;">
-    <button type="button" id="selectAllBtn">Select All Group Members</button>
-    <div id="listofUsers" class="collection ">
-    </div>
-    <button type="button" id="nextBtn">Next</button>
-  </section>
-
-  <section id="addingTheBill" style="display: none;">
-    <!--
-
-      Some sort of input for adding in bills
-
-    -->
-    <input id="totalInput">
-    <button type="button" id="inputButton">Input and Split Bill </button>
-
-  </section>
-
+<script>
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu,{});
+</script>
 </body>
-
-
 </html>
