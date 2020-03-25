@@ -99,3 +99,7 @@ input:checked + .slider:before {
   cursor: pointer;
   text-align: center;
 }
+
+nav {
+    background-color: rgb(175, 52, 180);
+}
