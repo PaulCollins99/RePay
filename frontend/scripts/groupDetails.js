@@ -1,3 +1,8 @@
+/**
+ * Function that adds the user to the selected group
+ * @param {*} user The user that is to be added
+ */
+
 function addUser(user) {
     let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
@@ -26,74 +31,108 @@ function addUser(user) {
                 }
             }
         } else {
-            alert("User does not exist");
+            // alert("User does not exist");
         }
     });
 
 }
 
+/**
+ * Function that adds the user to the selected group 
+ * @param {*} user The user that is to be added
+ */
+
 function deleteUser(user) {
-    let groupToEdit = localStorage.getItem("groupToLoad");
-    let groupArray = JSON.parse(localStorage.getItem("groupList"));
-    for (let x = 0; x < groupArray.length; x++) {
-        let array = JSON.parse(groupArray[x]);
-        if (array[0] == groupToEdit) {
-            let currentUsers = JSON.parse(array[1]);
-            let size = currentUsers.length;
-            if (currentUsers.length > 1) {
-                let afterRemove = currentUsers.filter(e => e !== user);
-                if (size !== afterRemove.length) {
-                    array[1] = JSON.stringify(afterRemove);
-                    let element = JSON.stringify(array);
-                    groupArray[x] = element;
-                    localStorage.setItem("groupList", JSON.stringify(groupArray));
-                } else {
-                    alert("user does not exist");
-                }
+    let admin = localStorage.getItem("groupAdmin");
+    if (admin === localStorage.getItem("Username")) {
+        let groupToEdit = localStorage.getItem("groupToLoad");
+        let groupArray = JSON.parse(localStorage.getItem("groupList"));
+        for (let x = 0; x < groupArray.length; x++) {
+            let array = JSON.parse(groupArray[x]);
+            if (array[0] == groupToEdit) {
+                let currentUsers = JSON.parse(array[1]);
+                let size = currentUsers.length;
+                if (currentUsers.length > 1) {
+                    let afterRemove = currentUsers.filter(e => e !== user);
+                    if (size !== afterRemove.length) {
+                        array[1] = JSON.stringify(afterRemove);
+                        let element = JSON.stringify(array);
+                        groupArray[x] = element;
+                        localStorage.setItem("groupList", JSON.stringify(groupArray));
+                    } else {
+                        alert("user does not exist");
+                    }
 
-            } else alert("unable to remove last member of group. To do this please delete the group an");
+                } else alert("unable to remove last member of group. To do this please delete the group an");
 
+            }
         }
+    } else {
+        alert("Group admin required for that action. Please contact " + getAdminUser())
     }
+
 }
 
 function changeGroupName(groupName) {
-    let groupToEdit = localStorage.getItem("groupToLoad");
-    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    let admin = localStorage.getItem("groupAdmin");
+    if (admin === localStorage.getItem("Username")) {
+        let groupToEdit = localStorage.getItem("groupToLoad");
+        let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
-    for (let x = 0; x < groupArray.length; x++) {
-        let array = JSON.parse(groupArray[x]);
-        if (array[0] == groupToEdit) {
+        for (let x = 0; x < groupArray.length; x++) {
+            let array = JSON.parse(groupArray[x]);
+            if (array[0] == groupToEdit) {
 
-            array[0] = groupName;
-            let element = JSON.stringify(array);
-            groupArray[x] = element;
-            localStorage.setItem("groupList", JSON.stringify(groupArray));
-            localStorage.setItem("groupToLoad", groupName);
+                array[0] = groupName;
+                let element = JSON.stringify(array);
+                groupArray[x] = element;
+                localStorage.setItem("groupList", JSON.stringify(groupArray));
+                localStorage.setItem("groupToLoad", groupName);
+            }
         }
+    } else {
+        alert("Group admin required for that action. Please contact " + getAdminUser())
     }
+
 }
 
 function deleteGroup() {
-    let groupToDelete = localStorage.getItem("groupToLoad");
-    let groupArray = JSON.parse(localStorage.getItem("groupList"));
-    console.log(groupArray);
+    let admin = localStorage.getItem("groupAdmin");
+    if (admin === localStorage.getItem("Username")) {
+        let groupToDelete = localStorage.getItem("groupToLoad");
+        let groupArray = JSON.parse(localStorage.getItem("groupList"));
+        console.log(groupArray);
 
-    for (let x = 0; x < groupArray.length; x++) {
-        let array = JSON.parse(groupArray[x]);
-        console.log(array);
-        if (array[0] == groupToDelete) {
-            groupArray.splice(x, 1);
-            localStorage.setItem("groupList", JSON.stringify(groupArray));
+        for (let x = 0; x < groupArray.length; x++) {
+            let array = JSON.parse(groupArray[x]);
+            console.log(array);
+            if (array[0] == groupToDelete) {
+                groupArray.splice(x, 1);
+                localStorage.setItem("groupList", JSON.stringify(groupArray));
+            }
         }
+        window.location.href = "managegroups.html";
+    } else {
+        alert("Group admin required for that action. Please contact " + getAdminUser())
     }
-    window.location.href = "managegroups.html";
 }
 
-function loadUploadBill () {
+function loadUploadBill() {
     window.location.href = "uploadBill.html";
 }
 
+function getAdminUser() {
+    let groupToLoad = localStorage.getItem("groupToLoad");
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(element => {
+        let array = JSON.parse(element);
+        if (array[0] == groupToLoad) {
+            let users = JSON.parse(array[1]);
+            localStorage.setItem("groupAdmin", users[0]);
+
+        }
+    });
+}
 
 function boot() {
     let groupToLoad = localStorage.getItem("groupToLoad");
