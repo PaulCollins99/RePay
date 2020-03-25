@@ -98,8 +98,6 @@ function loadGroups() {
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)
     window.createButton.addEventListener("click", addLi);
-    window.backArrow.addEventListener("click", back);
-
     loadGroups();
 }
 
