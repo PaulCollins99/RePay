@@ -2,6 +2,10 @@ body {
   font-family: Helvetica, arial;
 }
 
+html, .collection-item {
+    background-color: rgb(238, 238, 238) !important;
+}
+
 h1 {
   color: black;
   text-align: center;
