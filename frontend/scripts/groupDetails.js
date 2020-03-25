@@ -73,6 +73,11 @@ function deleteUser(user) {
 
 }
 
+/**
+ * Function to allow the group admin to rename the group
+ * @param {*} groupName Name for the rename of the group
+ */
+
 function changeGroupName(groupName) {
     let admin = localStorage.getItem("groupAdmin");
     if (admin === localStorage.getItem("Username")) {
@@ -96,6 +101,10 @@ function changeGroupName(groupName) {
 
 }
 
+/**
+ * Functiont to allow the groupAdmin to delete the group
+ */
+
 function deleteGroup() {
     let admin = localStorage.getItem("groupAdmin");
     if (admin === localStorage.getItem("Username")) {
@@ -117,9 +126,16 @@ function deleteGroup() {
     }
 }
 
+/**
+ * Function to navigate to the uplaod bill page
+ */
 function loadUploadBill() {
     window.location.href = "uploadBill.html";
 }
+
+/**
+ * Function to find who the group admin is
+ */
 
 function getAdminUser() {
     let groupToLoad = localStorage.getItem("groupToLoad");
@@ -133,6 +149,10 @@ function getAdminUser() {
         }
     });
 }
+
+/**
+ * Boot function with all things that need to be completed on load
+ */
 
 function boot() {
     let groupToLoad = localStorage.getItem("groupToLoad");

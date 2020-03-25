@@ -27,6 +27,7 @@ function loadGroups() {
       }
     })
   });
+  
   /**
    * Function to store the group that is clicked on
    * @param {*} e Clicked element

@@ -1,3 +1,7 @@
+/**
+ * Function to check on the criteria for creating account
+ */
+
 function checkCriteria() {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -16,6 +20,10 @@ function checkCriteria() {
 
 }
 
+/**
+ * Function to return a list of current existing usernames to use in the check criteria function
+ */
+
 
 function getListOfNames() {
     let names = []
@@ -27,6 +35,11 @@ function getListOfNames() {
     return names;
 }
 
+/**
+ * Function to create an account that uses the check criteria function to determine if the account is valid
+ * @param {*} username Username input
+ * @param {*} password Password input
+ */
 
 function createAccount(username, password) {
     //functinoallity required to check if username already exists
@@ -50,6 +63,10 @@ function createAccount(username, password) {
 function login() {
     window.location.href = "home.html";
 }
+
+/**
+ * Boot function with all things that need to be completed on load
+ */
 
 function boot() {
     window.createBtn.addEventListener("click", checkCriteria);
