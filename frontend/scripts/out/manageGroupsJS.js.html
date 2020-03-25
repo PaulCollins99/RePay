@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: manageGroupsJS.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: manageGroupsJS.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>//implement group admins
+/**
+ * Function the displays the text box when the user clicks on new group
+ */
+function showTextBox() {
+
+    const addButton = document.getElementById("createNewGroup");
+    addButton.style.display = "none";
+
+    const oldButton = document.getElementById("createButton");
+    oldButton.style.display = "block";
+
+    const oldInput = document.getElementById("nameInput");
+    oldInput.style.display = "block";
+}
+
+/**
+ * Function that is assigned to each new group when its created
+ * @param {*} e Element clicked
+ */
+
+function handlerForEachNewLi(e) {
+    localStorage.setItem("groupToLoad", e.target.text);
+    window.location.href = "manageGroupTemplate.html";
+}
+
+/**
+ * Function to create a new group and store in local storage
+ */
+function addLi() {
+    const element = document.getElementById("listOfGroups");
+    const input = document.getElementById("nameInput");
+
+    const existingGroups = getListOfGroups()
+    if (existingGroups.filter(e => e == input.value) == "" &amp;&amp; input.value != "") {
+        const newElement = document.createElement("a");
+        newElement.textContent = input.value;
+        newElement.href = "#!";
+        newElement.className = "collection-item waves-effect waves-light";
+        element.appendChild(newElement);
+        newElement.addEventListener("click", handlerForEachNewLi);
+
+        const addButton = document.getElementById("createNewGroup");
+        addButton.style.display = "block";
+
+        const oldButton = document.getElementById("createButton");
+        oldButton.style.display = "none";
+
+        const oldInput = document.getElementById("nameInput");
+        oldInput.style.display = "none";
+
+        let groupArray = JSON.parse(localStorage.getItem("groupList"));
+
+        let groupName = input.value;
+        let username = [];
+        username.push(localStorage.getItem("Username"));
+
+        let wrapper = [groupName, JSON.stringify(username)];
+
+        groupArray.push(JSON.stringify(wrapper));
+
+        localStorage.setItem("groupList", JSON.stringify(groupArray));
+
+        input.value = "";
+    } else {
+        alert("group name already exists");
+        input.value = "";
+    }
+
+
+}
+
+/**
+ * Function to get an array of all group names
+ */
+
+function getListOfGroups() {
+    let names = []
+    const groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(e => {
+        const array = JSON.parse(e);
+        names.push(array[0]);
+    })
+    return names;
+}
+
+/**
+ * Back button
+ */
+
+function back() {
+    window.location.href = "home.html";
+}
+
+/**
+ * Function to load all groups the user is a member of
+ */
+
+function loadGroups() {
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(element => {
+        let array = JSON.parse(element);
+        let users = JSON.parse(array[1]);
+        users.forEach(e => {
+            if (e == localStorage.getItem("Username")) {
+                const name = array[0];
+                const element = document.getElementById("listOfGroups");
+                const newElement = document.createElement("a");
+                newElement.textContent = name;
+                newElement.href = "#!";
+                newElement.className = "collection-item waves-effect waves-light";
+                newElement.addEventListener("click", handlerForEachNewLi);
+                element.appendChild(newElement);
+            }
+        })
+    });
+}
+
+/**
+ * Boot function to load everything needed
+ */
+
+function boot() {
+    window.createNewGroup.addEventListener("click", showTextBox)
+    window.createButton.addEventListener("click", addLi);
+    loadGroups();
+}
+
+window.addEventListener("load", boot);</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#addLi">addLi</a></li><li><a href="global.html#back">back</a></li><li><a href="global.html#boot">boot</a></li><li><a href="global.html#getListOfGroups">getListOfGroups</a></li><li><a href="global.html#handlerForEachNewLi">handlerForEachNewLi</a></li><li><a href="global.html#loadGroups">loadGroups</a></li><li><a href="global.html#showTextBox">showTextBox</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Wed Mar 25 2020 16:02:18 GMT+0000 (Greenwich Mean Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
