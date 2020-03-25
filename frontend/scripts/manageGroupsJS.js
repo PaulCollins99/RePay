@@ -72,7 +72,7 @@ function getListOfGroups() {
 }
 
 function back() {
-    window.location.href = "index.html";
+    window.location.href = "home.html";
 }
 
 function loadGroups() {

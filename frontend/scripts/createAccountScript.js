@@ -48,7 +48,7 @@ function createAccount(username, password) {
 }
 
 function login() {
-    window.location.href = "managegroups.html";
+    window.location.href = "home.html";
 }
 
 function boot() {

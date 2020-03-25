@@ -12,7 +12,7 @@ function login() {
         console.log(innerArray[1])
         if (innerArray[0] == username && innerArray[1] == password) {
             localStorage.setItem("Username", username);
-            window.location.href = 'managegroups.html';
+            window.location.href = 'home.html';
         } 
     })
     

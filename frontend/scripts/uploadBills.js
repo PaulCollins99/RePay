@@ -42,11 +42,15 @@ function loadGroups() {
                 newElement.textContent = name;
                 newElement.href = "#!";
                 newElement.className = "collection-item waves-effect waves-light";
-                newElement.addEventListener("click", handlerForEachNewLi);
+                newElement.addEventListener("click", selectGroup);
                 element.appendChild(newElement);
             }
         })
     });
+
+function selectGroup (e) {
+  localStorage.setItem("groupToLoad", e.target.textContent);
+}
 
 }
 function addSelectedNames(e) {
@@ -89,7 +93,7 @@ function loadUserList() {
     if (array[0] == groupToLoad) {
       let users = JSON.parse(array[1]);
       users.forEach(element => {
-        const oldElement = document.getElementById("listOfGroups");
+        const oldElement = document.getElementById("listofUsers");
         const newElement = document.createElement("a");
         newElement.textContent = element;
         newElement.href = "#!";
