@@ -1,3 +1,5 @@
+
+
 .collection,
 .collection-item {
     border: none !important;
@@ -14,6 +16,9 @@
     }
 }
 
+nav, #createNewGroup {
+    background-color: rgb(175, 52, 180);
+}
 
 input:focus {
     border-bottom: 1px solid rgb(175, 52, 180) !important;

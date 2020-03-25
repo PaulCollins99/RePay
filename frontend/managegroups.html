@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RE:Pay Manage Groups</title>
+    <title>RePay Manage Groups</title>
     <link rel="stylesheet" type="text/css" href="./style/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="./style/managegroupsstyle.css"/>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -14,17 +14,27 @@
 </head>
 
 <body id="MangeGroups">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">RePay</a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <nav>
+        <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">RePay</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+            <li><a href="home.html">Home</a></li>
+            <li class ="active"><a href="Managegroups.html">Groups</a></li>
+            <li> <a href ="uploadbill.html">Upload Bills</a></li>
+            <li> <a href ="Settings.html">Settings</a></li>
+            <li> <a href ="statspage.html">Statistics</a></li>
+        </ul>
+        </div>
+    </nav>
+    <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li class ="active"><a href="Managegroups.html">Groups</a></li>
         <li> <a href ="uploadbill.html">Upload Bills</a></li>
         <li> <a href ="Settings.html">Settings</a></li>
-      </ul>
-    </div>
-  </nav>
+        <li> <a href ="statspage.html">Statistics</a></li>
+    </ul>
+    
     <div id="manageGroupsDiv" class="container mobile">
         <div id="listOfGroups" class="collection ">
             <a href="#!" class="collection-item waves-effect waves-light">Example Group</a>
@@ -38,3 +48,9 @@
         <button id="createButton" style="display: none;">Create</button>
     </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+});
+</script>

@@ -20,6 +20,7 @@
   "homepage": "https://github.com/PaulCollins99/RePay#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "jsdoc": "^3.6.3",
     "mocha": "^7.1.0"
   }
 }
