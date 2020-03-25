@@ -4,7 +4,7 @@
 
 //split
 
-//store
+//store local storage for the time being
 
 function loadGroups() {
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
@@ -28,8 +28,8 @@ function loadGroups() {
   function selectGroup(e) {
     localStorage.setItem("usersToBill", JSON.stringify([]));
     localStorage.setItem("groupToLoad", e.target.textContent);
-    document.getElementById("groupSelection").style.display = "none"
-    document.getElementById("userSelection").style.display = "block"
+    document.getElementById("groupSelection").style.display = "none";
+    document.getElementById("userSelection").style.display = "block";
     loadUserList();
   }
 
@@ -43,15 +43,14 @@ function addSelectedNames(e) {
   for (let i = 0; i < currentUsersAdded.length; i++) {
     if (currentUsersAdded[i] === e.target.textContent) {
       contains = true;
-      alert("User already selected")
+      alert("User already selected");
       break;
     }
   }
 
   if (!contains) {
     currentUsersAdded.push(e.target.textContent);
-    localStorage.setItem("usersToBill", JSON.stringify(currentUsersAdded))
-    hideUsers()
+    localStorage.setItem("usersToBill", JSON.stringify(currentUsersAdded));
   }
 }
 
@@ -63,7 +62,7 @@ function selectAll() {
     let array = JSON.parse(element);
     if (array[0] == groupToLoad) {
       let users = JSON.parse(array[1]);
-      users.forEach(element => userArray.push(element))
+      users.forEach(element => userArray.push(element));
     }
   });
   localStorage.setItem("usersToBill", JSON.stringify(users));
@@ -93,8 +92,12 @@ function loadUserList() {
 //check if selected users is emptyu
 
 function hideUsers () {
-  document.getElementById("userSelection").style.display = "none"
-  document.getElementById("addingTheBill").style.display = "block"
+  if (JSON.parse(localStorage.getItem("usersToBill")).length == 0) {
+    alert("Please select a user");
+  } else {
+    document.getElementById("userSelection").style.display = "none";
+    document.getElementById("addingTheBill").style.display = "block";
+  }
 }
 
 function boot() {
@@ -102,7 +105,7 @@ function boot() {
   
 
   window.selectAllBtn.addEventListener("click", selectAll);
-  window.nextBtn.addEventListener("click", hideUsers)
+  window.nextBtn.addEventListener("click", hideUsers);
 
 
   document.getElementById("userSelection").style.display = "none";
