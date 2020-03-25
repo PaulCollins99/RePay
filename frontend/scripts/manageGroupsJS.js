@@ -1,5 +1,7 @@
 //implement group admins
-
+/**
+ * Function the displays the text box when the user clicks on new group
+ */
 function showTextBox() {
 
     const addButton = document.getElementById("createNewGroup");
@@ -12,12 +14,19 @@ function showTextBox() {
     oldInput.style.display = "block";
 }
 
+/**
+ * Function that is assigned to each new group when its created
+ * @param {*} e Element clicked
+ */
+
 function handlerForEachNewLi(e) {
     localStorage.setItem("groupToLoad", e.target.text);
     window.location.href = "manageGroupTemplate.html";
 }
 
-
+/**
+ * Function to create a new group and store in local storage
+ */
 function addLi() {
     const element = document.getElementById("listOfGroups");
     const input = document.getElementById("nameInput");
@@ -61,6 +70,10 @@ function addLi() {
 
 }
 
+/**
+ * Function to get an array of all group names
+ */
+
 function getListOfGroups() {
     let names = []
     const groupArray = JSON.parse(localStorage.getItem("groupList"));
@@ -71,9 +84,17 @@ function getListOfGroups() {
     return names;
 }
 
+/**
+ * Back button
+ */
+
 function back() {
     window.location.href = "home.html";
 }
+
+/**
+ * Function to load all groups the user is a member of
+ */
 
 function loadGroups() {
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
@@ -94,6 +115,10 @@ function loadGroups() {
         })
     });
 }
+
+/**
+ * Boot function to load everything needed
+ */
 
 function boot() {
     window.createNewGroup.addEventListener("click", showTextBox)

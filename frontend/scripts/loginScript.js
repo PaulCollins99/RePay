@@ -26,13 +26,15 @@ function onSignIn(googleUser) {
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail());
-
-    // window.location.href = "menu.html";
 }
 
 function newAccount() {
     window.location.href = 'createAccount.html';
 }
+
+/**
+ * Boot function with all things that need to be completed on load
+ */
 
 function boot() {
     window.loginBtn.addEventListener("click", login);
