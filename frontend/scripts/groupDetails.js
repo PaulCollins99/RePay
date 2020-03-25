@@ -7,6 +7,7 @@ function addUser(user) {
     let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     let potentialUsers = JSON.parse(localStorage.getItem("userList"));
+    let userExists = false;
     potentialUsers.forEach(e => {
         console.log(e)
         console.log(e.length);
