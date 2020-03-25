@@ -3,20 +3,17 @@
     border: none !important;
 }
 
-@media (max-width: 600px) {    
+@media (max-width: 600px) {
     .mobile {
         width: 100%;
     }
 
     .collection-item {
-        padding-left: 5% !important;  
+        padding-left: 5% !important;
         padding-right: 5% !important;
     }
 }
 
-nav, #createNewGroup {
-    background-color: rgb(175, 52, 180);
-}
 
 input:focus {
     border-bottom: 1px solid rgb(175, 52, 180) !important;
