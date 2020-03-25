@@ -49,8 +49,6 @@ function selectAll() {
   localStorage.setItem("usersToBill", JSON.stringify(users));
 }
 
-
-
 function loadUserList() {
   let groupToLoad = localStorage.getItem("groupToLoad");
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
