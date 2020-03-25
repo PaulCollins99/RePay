@@ -1,6 +1,17 @@
 //doesnt really work as intended
 
-function importFile() {
+//select the group you want
+
+//select the users you want
+
+//input the amount you want
+
+//split
+
+//store
+
+
+/*function importFile() {
   const element = document.getElementById('mainTextArea');
   const fileToImport = document.getElementById('fileToImport');
   const file = fileToImport.files[0];
@@ -16,7 +27,28 @@ function importBill(total, arrayOfGroupMembers) {
   console.log(total, arrayOfGroupMembers);
 
 }
+*/
 
+function loadGroups() {
+  let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    groupArray.forEach(element => {
+        let array = JSON.parse(element);
+        let users = JSON.parse(array[1]);
+        users.forEach(e => {
+            if (e == localStorage.getItem("Username")) {
+                const name = array[0];
+                const element = document.getElementById("listOfGroups");
+                const newElement = document.createElement("a");
+                newElement.textContent = name;
+                newElement.href = "#!";
+                newElement.className = "collection-item waves-effect waves-light";
+                newElement.addEventListener("click", handlerForEachNewLi);
+                element.appendChild(newElement);
+            }
+        })
+    });
+
+}
 function addSelectedNames(e) {
   let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"));
 
@@ -73,7 +105,7 @@ function loadUserList() {
 }
 
 function boot() {
-
+  loadGroups();
   loadUserList();
 
   window.btnImport.addEventListener("click", importFile);

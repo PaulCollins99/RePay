@@ -1,3 +1,5 @@
+//implement group admins
+
 function showTextBox() {
 
     const addButton = document.getElementById("createNewGroup");
@@ -73,11 +75,7 @@ function back() {
     window.location.href = "index.html";
 }
 
-function boot() {
-    window.createNewGroup.addEventListener("click", showTextBox)
-    window.createButton.addEventListener("click", addLi);
-    window.backArrow.addEventListener("click", back);
-
+function loadGroups() {
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(element => {
         let array = JSON.parse(element);
@@ -95,6 +93,14 @@ function boot() {
             }
         })
     });
+}
+
+function boot() {
+    window.createNewGroup.addEventListener("click", showTextBox)
+    window.createButton.addEventListener("click", addLi);
+    window.backArrow.addEventListener("click", back);
+
+    loadGroups();
 }
 
 window.addEventListener("load", boot);
