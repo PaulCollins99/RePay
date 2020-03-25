@@ -1,21 +1,19 @@
-body {
-  font-family: Helvetica, arial;
+html {
+    background-color: rgb(238, 238, 238) !important;
 }
 
-html, .collection-item {
-    background-color: rgb(238, 238, 238) !important;
+nav {
+    background-color: rgb(175, 52, 180);
 }
 
 h1 {
   color: black;
   text-align: center;
-  font-family: Helvetica, arial;
   font-size: 3em;
 }
 
 h2 {
   font-size: 2em;
-  font-family: Helvetica, arial;
   text-align: center;
 
 }
@@ -33,7 +31,6 @@ h4 {
 }
 
 p {
-  font-family: Helvetica, arial;
   text-align: center;
   color: black;
 }
@@ -100,9 +97,6 @@ input:checked + .slider:before {
   text-align: center;
 }
 
-nav {
-    background-color: rgb(175, 52, 180);
-}
 .Logout{
   margin-left: 0;
 }

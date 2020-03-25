@@ -1,8 +1,9 @@
+html, .collection-item {
+    background-color: rgb(238, 238, 238) !important;
+}
 
-
-.collection,
-.collection-item {
-    border: none !important;
+nav, #createNewGroup {
+    background-color: rgb(175, 52, 180);
 }
 
 @media (max-width: 600px) {
@@ -16,23 +17,20 @@
     }
 }
 
-nav, #createNewGroup {
-    background-color: rgb(175, 52, 180);
-}
-
-input:focus {
-    border-bottom: 1px solid rgb(175, 52, 180) !important;
-    box-shadow: none !important;
+.collection,
+.collection-item {
+    border: none !important;
 }
 
 .collection-item:hover {
     background-color: rgb(204, 204, 204) !important;
 }
 
-html, .collection-item {
-    background-color: rgb(238, 238, 238) !important;
-}
-
 .collection-item {
     color: rgb(0, 0, 0) !important;
+}
+
+input:focus {
+    border-bottom: 1px solid rgb(175, 52, 180) !important;
+    box-shadow: none !important;
 }

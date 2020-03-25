@@ -1,9 +1,9 @@
-body {
-  font-family: Helvetica, arial;
+html {
+    background-color: rgb(238, 238, 238) !important;
 }
 
-html, .collection-item {
-    background-color: rgb(238, 238, 238) !important;
+nav {
+    background-color: rgb(175, 52, 180);
 }
 
 h1 {
@@ -34,24 +34,7 @@ h4 {
 }
 
 p {
-  font-family: Helvetica, arial;
   text-align: center;
   color: black;
 }
-#fixedbutton {
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    width: 80px;
-    height: 80px;
-}
-.nav-wrapper {
-  position: relative;
-  min-height: 50px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-}
 
-nav {
-    background-color: rgb(175, 52, 180);
-}
