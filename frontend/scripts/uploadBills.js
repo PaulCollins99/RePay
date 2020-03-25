@@ -12,17 +12,27 @@ function importFile() {
   fileReader.readAsText(file);
 }
 
-function addSelectedNames(e) {
-  let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"))
-  if (currentUsersAdded.filter(name => name == e.target.textContent) == [""]) {
-    console.log(e.target.textContent);
-  }
-  else {
-    console.log("already there");
-    
-  }
-  
+function importBill(total, arrayOfGroupMembers) {
+  console.log(total, arrayOfGroupMembers);
 
+}
+
+function addSelectedNames(e) {
+  let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"));
+
+  let contains = false;
+
+  for (let i = 0; i < currentUsersAdded.length; i++) {
+    if (currentUsersAdded[i] === e.target.textContent) {
+      contains = true;
+      break;
+    }
+  }
+
+  if (!contains) {
+    currentUsersAdded.push(e.target.textContent);
+    localStorage.setItem("usersToBill", JSON.stringify(currentUsersAdded))
+  }
 }
 
 function selectAll() {
@@ -39,17 +49,38 @@ function selectAll() {
   localStorage.setItem("usersToBill", JSON.stringify(users));
 }
 
-function importBill(total, arrayOfGroupMembers) {
-  console.log(total, arrayOfGroupMembers);
+
+
+function loadUserList() {
+  let groupToLoad = localStorage.getItem("groupToLoad");
+  let groupArray = JSON.parse(localStorage.getItem("groupList"));
+  groupArray.forEach(element => {
+    let array = JSON.parse(element);
+    if (array[0] == groupToLoad) {
+      let users = JSON.parse(array[1]);
+      users.forEach(element => {
+        const oldElement = document.getElementById("listOfGroups");
+        const newElement = document.createElement("a");
+        newElement.textContent = element;
+        newElement.href = "#!";
+        newElement.className = "collection-item waves-effect waves-light";
+        newElement.addEventListener("click", addSelectedNames);
+        oldElement.appendChild(newElement);
+      })
+    }
+  });
+
+
 
 }
 
 function boot() {
 
+  loadUserList();
+
   window.btnImport.addEventListener("click", importFile);
-  window.test1.addEventListener("click", addSelectedNames);
-  window.test2.addEventListener("click", addSelectedNames);
   window.selectAllBtn.addEventListener("click", selectAll);
+
 
 }
 
