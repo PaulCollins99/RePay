@@ -3,11 +3,10 @@ body {
 }
 
 h1 {
-  color: yellow;
+  color: black;
   text-align: center;
   font-family: Helvetica, arial;
   font-size: 3em;
-  background-color: DarkViolet;
 }
 
 h2 {
