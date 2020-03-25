@@ -24,33 +24,30 @@
     </div>
   </nav>
 
-  <!--<h1> This is the page for uploading bills.</h1>
-  <h3> Currently you can upload a text file so not great</h3>
-  <input type="file" id="fileToImport">
-  <button type="button" id="btnImport">Import File</button>
-  <textarea id="mainTextArea"></textarea>-->
   <section id="groupSelection">
     <div id="listOfGroups" class="collection ">
     </div>
   </section>
 
-  <section id="userSelection">
+  <section id="userSelection" style="display: none;">
     <button type="button" id="selectAllBtn">Select All Group Members</button>
     <div id="listofUsers" class="collection ">
     </div>
+    <button id="nextBtn">Next</button>
   </section>
 
-  <section id="addingTheBill">
+  <section id="addingTheBill" style="display: none;">
     <!--
 
       Some sort of input for adding in bills
 
-
     -->
+    
+    <button type="Upload Bill" onclick="alert ('JavaScript Needed Here!')">Upload Bill </button>
+
   </section>
 
 </body>
 
-<button type="Upload Bill" onclick="alert ('JavaScript Needed Here!')">Upload Bill </button>
 
 </html>

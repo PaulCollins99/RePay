@@ -1,58 +1,40 @@
 //doesnt really work as intended
 
-//select the group you want
-
-//select the users you want
-
 //input the amount you want
 
 //split
 
 //store
 
-
-/*function importFile() {
-  const element = document.getElementById('mainTextArea');
-  const fileToImport = document.getElementById('fileToImport');
-  const file = fileToImport.files[0];
-  const fileReader = new FileReader();
-
-  fileReader.addEventListener('load', function () {
-    element.value = this.result;
-  });
-  fileReader.readAsText(file);
-}
-
-function importBill(total, arrayOfGroupMembers) {
-  console.log(total, arrayOfGroupMembers);
-
-}
-*/
-
 function loadGroups() {
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
-    groupArray.forEach(element => {
-        let array = JSON.parse(element);
-        let users = JSON.parse(array[1]);
-        users.forEach(e => {
-            if (e == localStorage.getItem("Username")) {
-                const name = array[0];
-                const element = document.getElementById("listOfGroups");
-                const newElement = document.createElement("a");
-                newElement.textContent = name;
-                newElement.href = "#!";
-                newElement.className = "collection-item waves-effect waves-light";
-                newElement.addEventListener("click", selectGroup);
-                element.appendChild(newElement);
-            }
-        })
-    });
+  groupArray.forEach(element => {
+    let array = JSON.parse(element);
+    let users = JSON.parse(array[1]);
+    users.forEach(e => {
+      if (e == localStorage.getItem("Username")) {
+        const name = array[0];
+        const element = document.getElementById("listOfGroups");
+        const newElement = document.createElement("a");
+        newElement.textContent = name;
+        newElement.href = "#!";
+        newElement.className = "collection-item waves-effect waves-light";
+        newElement.addEventListener("click", selectGroup);
+        element.appendChild(newElement);
+      }
+    })
+  });
 
-function selectGroup (e) {
-  localStorage.setItem("groupToLoad", e.target.textContent);
+  function selectGroup(e) {
+    localStorage.setItem("usersToBill", JSON.stringify([]));
+    localStorage.setItem("groupToLoad", e.target.textContent);
+    document.getElementById("groupSelection").style.display = "none"
+    document.getElementById("userSelection").style.display = "block"
+    loadUserList();
+  }
+
 }
 
-}
 function addSelectedNames(e) {
   let currentUsersAdded = JSON.parse(localStorage.getItem("usersToBill"));
 
@@ -61,6 +43,7 @@ function addSelectedNames(e) {
   for (let i = 0; i < currentUsersAdded.length; i++) {
     if (currentUsersAdded[i] === e.target.textContent) {
       contains = true;
+      alert("User already selected")
       break;
     }
   }
@@ -68,6 +51,7 @@ function addSelectedNames(e) {
   if (!contains) {
     currentUsersAdded.push(e.target.textContent);
     localStorage.setItem("usersToBill", JSON.stringify(currentUsersAdded))
+    hideUsers()
   }
 }
 
@@ -83,6 +67,7 @@ function selectAll() {
     }
   });
   localStorage.setItem("usersToBill", JSON.stringify(users));
+  hideUsers();
 }
 
 function loadUserList() {
@@ -103,18 +88,25 @@ function loadUserList() {
       })
     }
   });
+}
 
+//check if selected users is emptyu
 
-
+function hideUsers () {
+  document.getElementById("userSelection").style.display = "none"
+  document.getElementById("addingTheBill").style.display = "block"
 }
 
 function boot() {
   loadGroups();
-  loadUserList();
+  
 
-  window.btnImport.addEventListener("click", importFile);
   window.selectAllBtn.addEventListener("click", selectAll);
+  window.nextBtn.addEventListener("click", hideUsers)
 
+
+  document.getElementById("userSelection").style.display = "none";
+  document.getElementById("addingTheBill").style.display = "none";
 
 }
 

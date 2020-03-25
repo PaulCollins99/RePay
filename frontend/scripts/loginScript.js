@@ -47,8 +47,6 @@ function boot() {
     if (localStorage.getItem("userList") == null) {
         localStorage.setItem("userList", JSON.stringify([]));
     }
-
-    localStorage.setItem("usersToBill", JSON.stringify([]));
 }
 
 window.addEventListener("load", boot);
