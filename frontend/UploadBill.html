@@ -2,7 +2,6 @@
 <html lang="en">
 
 <!--JS and CSS references + HTML Metadata-->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +14,7 @@
     <script src="./scripts/materialize.min.js"></script>
 </head>
 
+<!-- HTML for NavBar -->
 <body>
     <nav>
         <div class="nav-wrapper">
@@ -32,6 +32,7 @@
             </div>
         </div>
     </nav>
+    <!-- Mobile NavBar HTML -->
     <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li><a href="Managegroups.html">Groups</a></li>
@@ -73,10 +74,9 @@ added some form of input (item/name) eg: lunch or shopping (needs css)
         </section>
     </div>
 
-    <script>
-        const slide_menu = document.querySelectorAll(".sidenav");
-        M.Sidenav.init(slide_menu, {});
-    </script>
+<script>
+    const slide_menu = document.querySelectorAll(".sidenav");
+    M.Sidenav.init(slide_menu, {});
+</script>
 </body>
-
 </html>
