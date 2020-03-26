@@ -2,6 +2,18 @@
 RePay 
 hhhhh
 
+#Username Key
+{Full Name} (UP NUMBER) = {Git username/s}
+
+Harry Jennings (UP898888) = Br1se and hjennings431.
+Harry Jones (UP907723) = BattlePope99.
+Paul Collins (UP895823) = PaulCollins99.
+Muhammad Shuaibu (UP820449) = Muneerr.
+Cameron Maguire (UP895937) = cameronmaguire.
+Lara Barnes (UP900264) = larabarnes.
+
+
+
 
 # ToDo List
 
