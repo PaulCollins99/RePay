@@ -26,8 +26,8 @@ function login() {
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Gotta use sommin called an id token here... not sure what that is tbh
-    localStorage.setItem("Username", profile.getId());
-    window.location.href = 'home.html';
+//  localStorage.setItem("Username", profile.getId());
+ //   window.location.href = 'home.html';
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail());

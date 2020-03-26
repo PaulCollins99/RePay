@@ -122,9 +122,11 @@ function hideUsers () {
 function addItem () {
   let item = document.getElementById("Item/Name").value;
   let price = document.getElementById("Price").value
+  
   if (item != null && item != "") {
     if (!isNaN(price)) {
-      console.log("number")
+      let currentPrice = parseFloat(localStorage.getItem("TotalCost"), 10)
+      localStorage.setItem("TotalCost", currentPrice + parseFloat(price, 10));
     }
     else {
       alert("Please input a price")
@@ -149,7 +151,7 @@ function boot() {
 
   document.getElementById("userSelection").style.display = "none";
   document.getElementById("addingTheBill").style.display = "none";
-
+  localStorage.setItem("TotalCost", 0.00);
 }
 
 window.addEventListener("load", boot);
