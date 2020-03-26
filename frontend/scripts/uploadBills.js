@@ -175,21 +175,21 @@ function billUsers() {
       for (let i = 0; i < usersArray.length; i++) {
         let user = JSON.parse(usersArray[i]);
         usersToBill.forEach(el => {
-          let cost = document.getElementById(el).value;
+          let cost = parseFloat(document.getElementById(el).value);
           if (user[0] == el) {
-            user[1] = cost
-            let newUser = [user[0], user[1]]          
+            let currentBill = parseFloat(user[1]);
+            currentBill += parseFloat(cost)
+            let newUser = [user[0], currentBill]          
             usersArray[i] = JSON.stringify(newUser)
             array[1] = JSON.stringify(usersArray);
-            console.log(array);
             groupArray[x] = JSON.stringify(array);
             localStorage.setItem("groupList", JSON.stringify(groupArray));
-            
           }
         })
       }
     }
   }
+  window.location.href = "home.html"
 }
 
 function split() {
@@ -202,8 +202,7 @@ function split() {
 
 
   if (total == runningTotal) {
-
-
+    billUsers();
   }
 }
 
