@@ -2,6 +2,7 @@
 <html lang="en">
 
 <!--JS and CSS references + HTML Metadata-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +24,10 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="home.html">Home</a></li>
                     <li><a href="Managegroups.html">Groups</a></li>
-                    <li class="active"><a href ="uploadbill.html">Upload Bills</a></li>
+                    <li class="active"><a href="uploadbill.html">Upload Bills</a></li>
                     <li><a href="Settings.html">Settings</a></li>
                     <li><a href="statspage.html">Statistics</a></li>
-                    <li><a href = "">Log Out</a></li>
+                    <li><a href="">Log Out</a></li>
                 </ul>
             </div>
         </div>
@@ -34,10 +35,10 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li><a href="Managegroups.html">Groups</a></li>
-        <li class ="active"><a href ="uploadbill.html">Upload Bills</a></li>
+        <li class="active"><a href="uploadbill.html">Upload Bills</a></li>
         <li><a href="Settings.html">Settings</a></li>
         <li><a href="statspage.html">Statistics</a></li>
-        <li><a href = "">Log Out</a></li>
+        <li><a href="">Log Out</a></li>
     </ul>
 
     <div class="container">
@@ -51,14 +52,14 @@
             <button type="button" id="nextBtn">Next</button>
         </section>
         <section id="addingTheBill" style="display: none;">
-<!--
+            <!--
 added some form of input (item/name) eg: lunch or shopping (needs css)
 -->
-          <input id="Item/Name" placeholder="Item">
-          <input id="Price" placeholder="Price">
-          <button type="button" id="addItemButton">Add</button>
+            <input id="Item/Name" placeholder="Item">
+            <input id="Price" placeholder="Price">
+            <button type="button" id="addItemButton">Add</button>
 
-          <!--
+            <!--
           back to original code
           -->
 
@@ -70,13 +71,14 @@ added some form of input (item/name) eg: lunch or shopping (needs css)
         </section>
     </div>
     <center>
-    <div id="SplitBill">
-<a class="waves-effect waves-light btn" id="splitBillButton">Split Bill</a>
-  </div>
-</center>
-<script>
-    const slide_menu = document.querySelectorAll(".sidenav");
-    M.Sidenav.init(slide_menu,{});
-</script>
+        <div id="SplitBill">
+            <a class="waves-effect waves-light btn" id="splitBillButton">Split Bill</a>
+        </div>
+    </center>
+    <script>
+        const slide_menu = document.querySelectorAll(".sidenav");
+        M.Sidenav.init(slide_menu, {});
+    </script>
 </body>
+
 </html>

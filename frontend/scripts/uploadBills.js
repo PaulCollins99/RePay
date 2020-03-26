@@ -149,12 +149,26 @@ function showUsers () {
     const newElement = document.createElement("a");
     const newElement2 = document.createElement("input");
     newElement2.placeholder = "Amount To Pay";
+    newElement2.className = "Input";
     newElement.textContent = e;
     newElement.href = "#!";
     newElement.className = "collection-item waves-effect waves-light";
     oldElement.appendChild(newElement);
     oldElement.appendChild(newElement2);
   })
+}
+
+function split () {
+  let element = document.getElementsByClassName("Input");
+  let total = 0
+  let runningTotal = localStorage.getItem("TotalCost")
+  for (let i = 0; i < element.length; i++) {
+    total += parseFloat(element.value);
+  }
+  if (total == runningTotal) {
+    console.log("bingo");
+    
+  }
 }
 
 /**
@@ -165,13 +179,11 @@ function boot() {
   loadGroups();
   
   window.addItemButton.addEventListener("click", addItem)
-
+  window.splitButton.addEventListener("click", split)
   window.selectAllBtn.addEventListener("click", selectAll);
   window.nextBtn.addEventListener("click", hideUsers);
   window.inputButton.addEventListener("click", hideInputs)
 
-  document.getElementById("userSelection").style.display = "none";
-  document.getElementById("addingTheBill").style.display = "none";
   localStorage.setItem("TotalCost", 0.00);
 }
 
