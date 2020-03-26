@@ -174,6 +174,30 @@ function changeName () {
     changeGroupName(name);
 }
 
+function loadUserList() {
+    let groupToLoad = localStorage.getItem("groupToLoad");
+    let groupArray = JSON.parse(localStorage.getItem("groupList"));
+  
+    groupArray.forEach(element => {
+      let array = JSON.parse(element);
+      if (array[0] == groupToLoad) {
+        let userArray = JSON.parse(array[1]);
+        userArray.forEach(e => {
+          let user = JSON.parse(e);
+          const oldElement = document.getElementById("UserList");
+          const newElement = document.createElement("a");
+          newElement.textContent = user[0] + " owes £" + user[1];
+          newElement.href = "#!";
+          newElement.className = "collection-item waves-effect waves-light";
+          //add in click to remove bill
+          oldElement.appendChild(newElement);
+        })
+  
+      }
+    });
+  }
+  
+
 /**
  * Boot function with all things that need to be completed on load
  */
@@ -192,6 +216,7 @@ function boot() {
         }
     });
     
+    loadUserList();
     getAdminUser();
     window.newUserButton.addEventListener("click", newUser);
     window.delUserButton.addEventListener("click", delUser);
