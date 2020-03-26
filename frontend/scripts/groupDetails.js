@@ -7,19 +7,13 @@ function addUser(user) {
     let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     let potentialUsers = JSON.parse(localStorage.getItem("userList"));
-    let userExists = false;
     potentialUsers.forEach(e => {
-        console.log(e)
-        console.log(e.length);
-        console.log(user.length);
         if (e === user && e.length == user.length) {
             for (let x = 0; x < groupArray.length; x++) {
                 let array = JSON.parse(groupArray[x]);
                 if (array[0] == groupToEdit) {
                     let users = JSON.parse(array[1]);
                     let check = users.filter(e => e === user);
-                    console.log(check);
-
                     if (check == "") {
                         users.push(user);
                         array[1] = JSON.stringify(users);
@@ -111,11 +105,9 @@ function deleteGroup() {
     if (admin === localStorage.getItem("Username")) {
         let groupToDelete = localStorage.getItem("groupToLoad");
         let groupArray = JSON.parse(localStorage.getItem("groupList"));
-        console.log(groupArray);
 
         for (let x = 0; x < groupArray.length; x++) {
             let array = JSON.parse(groupArray[x]);
-            console.log(array);
             if (array[0] == groupToDelete) {
                 groupArray.splice(x, 1);
                 localStorage.setItem("groupList", JSON.stringify(groupArray));
@@ -151,6 +143,21 @@ function getAdminUser() {
     });
 }
 
+function newUser () {
+    let user = document.getElementById("NewUserName").value
+    addUser(user);
+}
+
+function delUser () {
+    let user = document.getElementById("DeleteUser").value
+    deleteUser(user);
+}
+
+function changeName () {
+    let name = document.getElementById("ChangeGroupName").value
+    changeGroupName(name);
+}
+
 /**
  * Boot function with all things that need to be completed on load
  */
@@ -169,6 +176,10 @@ function boot() {
             users.forEach(element => console.log(element))
         }
     });
+
+    window.newUserButton.addEventListener("click", newUser);
+    window.delUserButton.addEventListener("click", delUser);
+    window.changeGroupNameButton.addEventListener("click", changeName);
 }
 
 window.addEventListener("load", boot)

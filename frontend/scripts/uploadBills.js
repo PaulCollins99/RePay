@@ -71,10 +71,11 @@ function selectAll() {
   let userArray = [];
   let groupToLoad = localStorage.getItem("groupToLoad");
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
+  let users = [];
   groupArray.forEach(element => {
     let array = JSON.parse(element);
     if (array[0] == groupToLoad) {
-      let users = JSON.parse(array[1]);
+      users = JSON.parse(array[1]);
       users.forEach(element => userArray.push(element));
     }
   });
@@ -118,6 +119,60 @@ function hideUsers () {
   }
 }
 
+function addItem () {
+  let item = document.getElementById("Item/Name").value;
+  let price = document.getElementById("Price").value
+  
+  if (item != null && item != "") {
+    if (!isNaN(price)) {
+      let currentPrice = parseFloat(localStorage.getItem("TotalCost"), 10)
+      localStorage.setItem("TotalCost", currentPrice + parseFloat(price, 10));
+    }
+    else {
+      alert("Please input a price")
+    }
+  } else {
+    alert ("Please input a name")
+  }
+}
+
+function hideInputs () {
+  document.getElementById("addingTheBill").style.display = "none";
+  document.getElementById("splittingTheBill").style.display = "block";
+  showUsers();
+}
+
+function showUsers () {
+  let arrayOfUsers = JSON.parse(localStorage.getItem("usersToBill"));
+  arrayOfUsers.forEach (e => {
+    const oldElement = document.getElementById("listofUsers2");
+    const newElement = document.createElement("a");
+    const newElement2 = document.createElement("input");
+    newElement2.placeholder = "Amount To Pay";
+    newElement2.className = "Input";
+    newElement.textContent = e;
+    newElement.href = "#!";
+    newElement.className = "collection-item waves-effect waves-light";
+    oldElement.appendChild(newElement);
+    oldElement.appendChild(newElement2);
+  })
+}
+
+function split () {
+  let element = document.getElementsByClassName("Input");
+  let total = 0
+  let runningTotal = localStorage.getItem("TotalCost")
+  for (let i = 0; i < element.length; i++) {
+    total += parseFloat(element[i].value);
+  }
+  console.log(total);
+  
+  if (total == runningTotal) {
+    console.log("bingo");
+    
+  }
+}
+
 /**
  * Boot function with all things that need to be completed on load
  */
@@ -125,14 +180,13 @@ function hideUsers () {
 function boot() {
   loadGroups();
   
-
+  window.addItemButton.addEventListener("click", addItem)
+  window.splitButton.addEventListener("click", split)
   window.selectAllBtn.addEventListener("click", selectAll);
   window.nextBtn.addEventListener("click", hideUsers);
+  window.inputButton.addEventListener("click", hideInputs)
 
-
-  document.getElementById("userSelection").style.display = "none";
-  document.getElementById("addingTheBill").style.display = "none";
-
+  localStorage.setItem("TotalCost", 0.00);
 }
 
 window.addEventListener("load", boot);
