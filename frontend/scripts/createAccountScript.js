@@ -20,6 +20,7 @@ function checkCriteria() {
 
 }
 
+
 /**
  * Function to return a list of current existing usernames to use in the check criteria function
  */
@@ -50,7 +51,7 @@ function createAccount(username, password) {
     detailsArray.push(JSON.stringify(wrapper))
 
     localStorage.setItem("login-details", JSON.stringify(detailsArray));
-    
+
     let users = JSON.parse(localStorage.getItem("userList"));
     users.push(username);
     localStorage.setItem("userList", JSON.stringify(users));

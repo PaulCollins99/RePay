@@ -6,12 +6,15 @@ const express = require('express');
 
 const app = express();
 
-app.use('/', express.static('frontend', { extensions: ['htm', 'html'] }));
+app.use('/', express.static('frontend', {
+  extensions: ['htm', 'html']
+}));
 
-function printHelloWorld () {
+
+function printHelloWorld() {
   console.log("Hello, world!");
 }
 
-app.listen(8080);
-
 module.exports.printHelloWorld = printHelloWorld;
+
+app.listen(8080);
