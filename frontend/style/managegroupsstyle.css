@@ -1,11 +1,3 @@
-html, .collection-item {
-    background-color: rgb(238, 238, 238) !important;
-}
-
-nav, #createNewGroup {
-    background-color: rgb(175, 52, 180);
-}
-
 @media (max-width: 600px) {
     .mobile {
         width: 100%;
@@ -15,6 +7,10 @@ nav, #createNewGroup {
         padding-left: 5% !important;
         padding-right: 5% !important;
     }
+}
+
+#createNewGroup {
+    background-color: rgb(175, 52, 180);
 }
 
 .collection,
@@ -27,6 +23,7 @@ nav, #createNewGroup {
 }
 
 .collection-item {
+    background-color: rgb(238, 238, 238) !important;
     color: rgb(0, 0, 0) !important;
 }
 
