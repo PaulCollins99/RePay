@@ -20,7 +20,8 @@ userID smallserial references user(userID)
 
 create table bill(
 billID smallserial primary key,
-billName varchar(30) not null
+billName varchar(30) not null,
+billPrice currency not null
 );
 
 groupBill(
