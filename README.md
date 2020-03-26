@@ -1,6 +1,5 @@
 # RePay
 RePay 
-hhhhh
 
 **Username Key**  
 {Full Name} (UP NUMBER) = {Git username/s}  
