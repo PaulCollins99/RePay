@@ -136,6 +136,27 @@ function addItem () {
   }
 }
 
+function hideInputs () {
+  document.getElementById("addingTheBill").style.display = "none";
+  document.getElementById("splittingTheBill").style.display = "block";
+  showUsers();
+}
+
+function showUsers () {
+  let arrayOfUsers = JSON.parse(localStorage.getItem("usersToBill"));
+  arrayOfUsers.forEach (e => {
+    const oldElement = document.getElementById("listofUsers2");
+    const newElement = document.createElement("a");
+    const newElement2 = document.createElement("input");
+    newElement2.placeholder = "Amount To Pay";
+    newElement.textContent = e;
+    newElement.href = "#!";
+    newElement.className = "collection-item waves-effect waves-light";
+    oldElement.appendChild(newElement);
+    oldElement.appendChild(newElement2);
+  })
+}
+
 /**
  * Boot function with all things that need to be completed on load
  */
@@ -147,7 +168,7 @@ function boot() {
 
   window.selectAllBtn.addEventListener("click", selectAll);
   window.nextBtn.addEventListener("click", hideUsers);
-
+  window.inputButton.addEventListener("click", hideInputs)
 
   document.getElementById("userSelection").style.display = "none";
   document.getElementById("addingTheBill").style.display = "none";
