@@ -12,23 +12,25 @@
 function loadGroups() {
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
   groupArray.forEach(element => {
-    let array = JSON.parse(element);
-    let users = JSON.parse(array[1]);
-    users.forEach(e => {
-      if (e == localStorage.getItem("Username")) {
-        const name = array[0];
-        const element = document.getElementById("listOfGroups");
-        const newElement = document.createElement("a");
-        newElement.textContent = name;
-        newElement.href = "#!";
-        newElement.className = "collection-item waves-effect waves-light";
-        newElement.addEventListener("click", selectGroup);
-        element.appendChild(newElement);
-      }
-    })
+      let array = JSON.parse(element);
+      let usersArray = JSON.parse(array[1]);        
+      usersArray.forEach(e => {
+          let user = JSON.parse(e);
+          if (user[0] == localStorage.getItem("Username")) {
+              const name = array[0];
+              const element = document.getElementById("listOfGroups");
+              const newElement = document.createElement("a");
+              newElement.textContent = name;
+              newElement.href = "#!";
+              newElement.className = "collection-item waves-effect waves-light";
+              newElement.addEventListener("click", handlerForEachNewLi);
+              element.appendChild(newElement);
+          }
+      })
   });
-  
-  /**
+}
+
+/**
    * Function to store the group that is clicked on
    * @param {*} e Clicked element
    */
@@ -39,8 +41,6 @@ function loadGroups() {
     document.getElementById("userSelection").style.display = "block";
     loadUserList();
   }
-
-}
 
 /**
  * Function to store the user that is clicked on

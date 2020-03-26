@@ -13,13 +13,18 @@ function addUser(newuser) {
                 let array = JSON.parse(groupArray[x]);
                 if (array[0] == groupToEdit) {
                     let wrapper = JSON.parse(array[1]);
-                    console.log("wrapper array is: " + wrapper);
+                    let check = false;
+                    wrapper.forEach(e=> {
+                        let userCheck = JSON.parse(e);
+                        if (userCheck[0] == newuser) {
+                            check = true;
+                        }
+                    })
+                    
                     let user = []
-                    let check = wrapper.filter(e => e === user);
-                    if (check == "") {
+                    if (!check) {
                         user[0] = newuser;
                         user[1] = 0;
-                        console.log(user)
                         wrapper.push(JSON.stringify(user))
                         array[1] = JSON.stringify(wrapper);
                         let element = JSON.stringify(array);
@@ -42,29 +47,34 @@ function addUser(newuser) {
  * @param {*} user The user that is to be added
  */
 
-function deleteUser(user) {
+function deleteUser(theUser) {
     let admin = localStorage.getItem("groupAdmin");
     if (admin === localStorage.getItem("Username")) {
         let groupToEdit = localStorage.getItem("groupToLoad");
         let groupArray = JSON.parse(localStorage.getItem("groupList"));
         for (let x = 0; x < groupArray.length; x++) {
             let array = JSON.parse(groupArray[x]);
+            console.log("array is " + array);
+            
             if (array[0] == groupToEdit) {
+                let userToBeDeleted;
                 let currentUsers = JSON.parse(array[1]);
-                let size = currentUsers.length;
-                if (currentUsers.length > 1) {
-                    let afterRemove = currentUsers.filter(e => e !== user);
-                    if (size !== afterRemove.length) {
-                        array[1] = JSON.stringify(afterRemove);
-                        let element = JSON.stringify(array);
-                        groupArray[x] = element;
-                        localStorage.setItem("groupList", JSON.stringify(groupArray));
-                    } else {
-                        alert("user does not exist");
-                    }
-
-                } else alert("unable to remove last member of group. To do this please delete the group an");
-
+                console.log("current users " + currentUsers);
+                for (let i = 1; i<currentUsers.length; i++) {
+                    let user = JSON.parse(currentUsers[i]);
+                    if (user[0] == theUser) {
+                        userToBeDeleted = i;
+                    }   
+                }
+                let deletee = currentUsers[userToBeDeleted];
+                console.log("Current array" + currentUsers);
+                let newUserArray = currentUsers.filter(e=>e != deletee)
+                console.log("New user array " + newUserArray)
+                array[1] = JSON.stringify(newUserArray);
+                console.log("array " + array);
+                groupArray[x] = JSON.stringify(array);
+                localStorage.setItem("groupList", JSON.stringify(groupArray));
+                break;              
             }
         }
     } else {
@@ -138,12 +148,13 @@ function loadUploadBill() {
 function getAdminUser() {
     let groupToLoad = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
+    
     groupArray.forEach(element => {
         let array = JSON.parse(element);
         if (array[0] == groupToLoad) {
-            let users = JSON.parse(array[1]);
-            localStorage.setItem("groupAdmin", users[0]);
-
+            let userArray = JSON.parse(array[1]);
+            let user = JSON.parse(userArray[0]);
+            localStorage.setItem("groupAdmin", user[0]);
         }
     });
 }
@@ -170,7 +181,6 @@ function changeName () {
 function boot() {
     let groupToLoad = localStorage.getItem("groupToLoad");
     document.title = groupToLoad;
-
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     groupArray.forEach(element => {
         let array = JSON.parse(element);
@@ -181,7 +191,8 @@ function boot() {
             users.forEach(element => console.log(element))
         }
     });
-
+    
+    getAdminUser();
     window.newUserButton.addEventListener("click", newUser);
     window.delUserButton.addEventListener("click", delUser);
     window.changeGroupNameButton.addEventListener("click", changeName);
