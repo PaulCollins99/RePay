@@ -12,37 +12,35 @@
 function loadGroups() {
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
   groupArray.forEach(element => {
-    let array = JSON.parse(element);
-    let usersArray = JSON.parse(array[1]);
-    usersArray.forEach(e => {
-      let user = JSON.parse(e);
-      if (user[0] == localStorage.getItem("Username")) {
-        const name = array[0];
-        const element = document.getElementById("listOfGroups");
-        const newElement = document.createElement("a");
-        newElement.textContent = name;
-        newElement.href = "#!";
-        newElement.className = "collection-item waves-effect waves-light";
-        newElement.addEventListener("click", handlerForEachNewLi);
-        element.appendChild(newElement);
-      }
-    })
+      let array = JSON.parse(element);
+      let usersArray = JSON.parse(array[1]);        
+      usersArray.forEach(e => {
+          let user = JSON.parse(e);
+          if (user[0] == localStorage.getItem("Username")) {
+              const name = array[0];
+              const element = document.getElementById("listOfGroups");
+              const newElement = document.createElement("a");
+              newElement.textContent = name;
+              newElement.href = "#!";
+              newElement.className = "collection-item waves-effect waves-light";
+              newElement.addEventListener("click", handlerForEachNewLi);
+              element.appendChild(newElement);
+          }
+      })
   });
 }
 
 /**
- * Function to store the group that is clicked on
- * @param {*} e Clicked element
- */
-function selectGroup(e) {
-  localStorage.setItem("usersToBill", JSON.stringify([]));
-  localStorage.setItem("groupToLoad", e.target.textContent);
-  document.getElementById("groupSelection").style.display = "none";
-  document.getElementById("userSelection").style.display = "block";
-  loadUserList();
-}
-
-}
+   * Function to store the group that is clicked on
+   * @param {*} e Clicked element
+   */
+  function selectGroup(e) {
+    localStorage.setItem("usersToBill", JSON.stringify([]));
+    localStorage.setItem("groupToLoad", e.target.textContent);
+    document.getElementById("groupSelection").style.display = "none";
+    document.getElementById("userSelection").style.display = "block";
+    loadUserList();
+  }
 
 /**
  * Function to store the user that is clicked on
@@ -112,7 +110,7 @@ function loadUserList() {
 /**
  * Function to hide the user selection section and display the adding bill section
  */
-function hideUsers() {
+function hideUsers () {
   if (JSON.parse(localStorage.getItem("usersToBill")).length == 0) {
     alert("Please select a user");
   } else {
@@ -121,31 +119,32 @@ function hideUsers() {
   }
 }
 
-function addItem() {
+function addItem () {
   let item = document.getElementById("Item/Name").value;
   let price = document.getElementById("Price").value
-
+  
   if (item != null && item != "") {
     if (!isNaN(price)) {
       let currentPrice = parseFloat(localStorage.getItem("TotalCost"), 10)
       localStorage.setItem("TotalCost", currentPrice + parseFloat(price, 10));
-    } else {
+    }
+    else {
       alert("Please input a price")
     }
   } else {
-    alert("Please input a name")
+    alert ("Please input a name")
   }
 }
 
-function hideInputs() {
+function hideInputs () {
   document.getElementById("addingTheBill").style.display = "none";
   document.getElementById("splittingTheBill").style.display = "block";
   showUsers();
 }
 
-function showUsers() {
+function showUsers () {
   let arrayOfUsers = JSON.parse(localStorage.getItem("usersToBill"));
-  arrayOfUsers.forEach(e => {
+  arrayOfUsers.forEach (e => {
     const oldElement = document.getElementById("listofUsers2");
     const newElement = document.createElement("a");
     const newElement2 = document.createElement("input");
@@ -159,7 +158,7 @@ function showUsers() {
   })
 }
 
-function split() {
+function split () {
   let element = document.getElementsByClassName("Input");
   let total = 0
   let runningTotal = localStorage.getItem("TotalCost")
@@ -167,10 +166,10 @@ function split() {
     total += parseFloat(element[i].value);
   }
   console.log(total);
-
+  
   if (total == runningTotal) {
     console.log("bingo");
-
+    
   }
 }
 
@@ -180,7 +179,7 @@ function split() {
 
 function boot() {
   loadGroups();
-
+  
   window.addItemButton.addEventListener("click", addItem)
   window.splitButton.addEventListener("click", split)
   window.selectAllBtn.addEventListener("click", selectAll);
