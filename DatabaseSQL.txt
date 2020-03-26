@@ -1,0 +1,48 @@
+create database repay;
+\c repay;
+
+create table user(
+username varchar(10) not null,
+userEmail varchar(60) primary key,
+userPasswordHash varchar(30) not null,
+userID smallserial unique
+);
+
+create table group(
+groupID smallserial primary key,
+groupName varchar(30) not null
+);
+
+create table userGroup(
+groupID smallserial references group(groupID),
+userID smallserial references user(userID)
+);
+
+create table bill(
+billID smallserial primary key,
+billName varchar(30) not null
+);
+
+groupBill(
+groupID smallserial references group(groupID),
+billID smallserial references bill(billID)
+);
+
+userBill(
+userID smallserial references user(userID),
+billID smallserial references bill(billID)
+):
+
+
+create table receipt(
+receiptID smallserial primary key,
+receiptPath varchar(100) not null,
+groupID smallserial references group(groupID),
+userID smallserial references user(userID)
+);
+
+
+create table setting(
+userID smallserial references user(userID),
+highContrast BOOLEAN not null
+);
