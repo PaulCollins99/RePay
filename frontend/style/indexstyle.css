@@ -39,6 +39,3 @@ input:focus {
 label.active {
     color: rgb(175, 52, 180) !important;
 }
-html, .collection-item {
-    background-color: rgb(238, 238, 238) !important;
-}
