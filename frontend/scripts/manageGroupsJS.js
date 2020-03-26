@@ -52,10 +52,12 @@ function addLi() {
         let groupArray = JSON.parse(localStorage.getItem("groupList"));
 
         let groupName = input.value;
-        let username = [];
-        username.push(localStorage.getItem("Username"));
-
-        let wrapper = [groupName, JSON.stringify(username)];
+        let userArray = [];
+        let user = []
+        user[0] = localStorage.getItem("Username");
+        user[1] = 0;
+        userArray.push(JSON.stringify(user));
+        let wrapper = [groupName, JSON.stringify(userArray)];
 
         groupArray.push(JSON.stringify(wrapper));
 

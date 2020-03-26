@@ -1,22 +1,27 @@
 /**
  * Function that adds the user to the selected group
- * @param {*} user The user that is to be added
+ * @param {*} newuser The user that is to be added
  */
 
-function addUser(user) {
+function addUser(newuser) {
     let groupToEdit = localStorage.getItem("groupToLoad");
     let groupArray = JSON.parse(localStorage.getItem("groupList"));
     let potentialUsers = JSON.parse(localStorage.getItem("userList"));
     potentialUsers.forEach(e => {
-        if (e === user && e.length == user.length) {
+        if (e === newuser && e.length == newuser.length) {
             for (let x = 0; x < groupArray.length; x++) {
                 let array = JSON.parse(groupArray[x]);
                 if (array[0] == groupToEdit) {
-                    let users = JSON.parse(array[1]);
-                    let check = users.filter(e => e === user);
+                    let wrapper = JSON.parse(array[1]);
+                    console.log("wrapper array is: " + wrapper);
+                    let user = []
+                    let check = wrapper.filter(e => e === user);
                     if (check == "") {
-                        users.push(user);
-                        array[1] = JSON.stringify(users);
+                        user[0] = newuser;
+                        user[1] = 0;
+                        console.log(user)
+                        wrapper.push(JSON.stringify(user))
+                        array[1] = JSON.stringify(wrapper);
                         let element = JSON.stringify(array);
                         groupArray[x] = element;
                         localStorage.setItem("groupList", JSON.stringify(groupArray));
