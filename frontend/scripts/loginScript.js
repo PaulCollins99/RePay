@@ -1,7 +1,7 @@
 function login() {
     //grab the values from the form input elements
     let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let password = btoa(document.getElementById("password").value);
 
 
     // we need our own password database just incase people dont want to use google sign in. Will just use local storage until this is stored
@@ -26,10 +26,13 @@ function login() {
 function onSignIn(googleUser) {
     let profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Gotta use sommin called an id token here... not sure what that is tbh
+    localStorage.setItem("Username", profile.getId());
+    window.location.href = 'home.html';
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
     console.log('Email: ' + profile.getEmail());
 }
+
 
 function newAccount() {
     window.location.href = 'createAccount.html';

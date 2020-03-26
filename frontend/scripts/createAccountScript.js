@@ -4,8 +4,8 @@
 
 function checkCriteria() {
     let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
-    let passCheck = document.getElementById("confirmPassword").value
+    let password = btoa(document.getElementById("password").value);
+    let passCheck = btoa(document.getElementById("confirmPassword").value);
     let existingNames = getListOfNames();
 
     if (existingNames.filter(e => e == username) == "") {

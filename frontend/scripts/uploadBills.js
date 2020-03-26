@@ -71,10 +71,11 @@ function selectAll() {
   let userArray = [];
   let groupToLoad = localStorage.getItem("groupToLoad");
   let groupArray = JSON.parse(localStorage.getItem("groupList"));
+  let users = [];
   groupArray.forEach(element => {
     let array = JSON.parse(element);
     if (array[0] == groupToLoad) {
-      let users = JSON.parse(array[1]);
+      users = JSON.parse(array[1]);
       users.forEach(element => userArray.push(element));
     }
   });
@@ -118,6 +119,21 @@ function hideUsers () {
   }
 }
 
+function addItem () {
+  let item = document.getElementById("Item/Name").value;
+  let price = document.getElementById("Price").value
+  if (item != null && item != "") {
+    if (!isNaN(price)) {
+      console.log("number")
+    }
+    else {
+      alert("Please input a price")
+    }
+  } else {
+    alert ("Please input a name")
+  }
+}
+
 /**
  * Boot function with all things that need to be completed on load
  */
@@ -125,6 +141,7 @@ function hideUsers () {
 function boot() {
   loadGroups();
   
+  window.addItemButton.addEventListener("click", addItem)
 
   window.selectAllBtn.addEventListener("click", selectAll);
   window.nextBtn.addEventListener("click", hideUsers);
