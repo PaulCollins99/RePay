@@ -14,20 +14,22 @@
     <script src="./scripts/materialize.min.js"></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
-    
+
+<!-- HTML for Login text fields and buttons -->
+
 <body>
     <div class="container center-align">
-        <img src="/logo.PNG">
+        <img src="./logo.PNG" alt="Logo">
         <div class="input-field">
             <input id="username" type="text">
             <label for="username">Username</label>
-        </div>     
+        </div>
         <div class="input-field">
             <input id="password" type="password">
             <label for="password">Password</label>
         </div>
         <a class="waves-effect waves-light btn" id="loginBtn">Login</a>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>           
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
         <a class="waves-effect waves-light btn" id="createAccountBtn">Create Account</a>
         <a class="waves-effect waves-light btn" id="forgottenPassword">Forgot Password</a>
     </div>

@@ -12,6 +12,7 @@
     <script src="./scripts/materialize.min.js"></script>
 </head>
 
+<!-- NavBar -->
 <body>
     <nav>
         <div class="nav-wrapper">
@@ -28,6 +29,7 @@
             </div>
         </div>
     </nav>
+    <!-- Mobile NavBar -->
     <ul class="sidenav" id="mobile-demo">
         <li><a href="home.html">Home</a></li>
         <li><a href="Managegroups.html">Groups</a></li>
@@ -35,7 +37,8 @@
         <li class="active"><a href="Settings.html">Settings</a></li>
         <li><a href="statspage.html">Statistics</a></li>
     </ul>
-
+    
+<!-- Settings HTML -->
     <div class="container">
         <h1> Settings </h1>
         <div style ="float:left">
@@ -53,7 +56,7 @@
         <br>
         <a class="waves-effect waves-light btn" id="logoutBtn">Log Out</a>
     </div>
- 
+
 <script>
     const slide_menu = document.querySelectorAll(".sidenav");
     M.Sidenav.init(slide_menu,{});
