@@ -1,6 +1,8 @@
 create database repay;
 \c repay;
 
+/* create tables for database */
+
 create table user(
 username varchar(10) not null,
 userEmail varchar(60) primary key,
@@ -29,6 +31,7 @@ groupID smallserial references group(groupID),
 billID smallserial references bill(billID)
 );
 
+/* tables to normalise database*/
 userBill(
 userID smallserial references user(userID),
 billID smallserial references bill(billID)
