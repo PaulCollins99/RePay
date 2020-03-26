@@ -163,8 +163,10 @@ function split () {
   let total = 0
   let runningTotal = localStorage.getItem("TotalCost")
   for (let i = 0; i < element.length; i++) {
-    total += parseFloat(element.value);
+    total += parseFloat(element[i].value);
   }
+  console.log(total);
+  
   if (total == runningTotal) {
     console.log("bingo");
     
