@@ -237,6 +237,7 @@ function boot() {
     window.newUserButton.addEventListener("click", newUser);
     window.delUserButton.addEventListener("click", delUser);
     window.changeGroupNameButton.addEventListener("click", changeName);
+    window.RemoveGroup.addEventListener("click", deleteGroup);
 }
 
 window.addEventListener("load", boot)

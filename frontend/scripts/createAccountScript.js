@@ -12,7 +12,7 @@ function checkCriteria() {
     if (existingNames.filter(e => e == username) == "") {
         if (password === passCheck && password != null && password != "") {
             if (email != "" & email != null && emailIsValid(email)) {
-                createAccount(base54It(username), base54It(password), base54It(email));
+                createAccount(username, base64It(password), base64It(email));
             }
             else {
                 alert("Email Invalid")
