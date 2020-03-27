@@ -6,18 +6,28 @@ function checkCriteria() {
     let username = document.getElementById("username").value;
     let password = btoa(document.getElementById("password").value);
     let passCheck = btoa(document.getElementById("confirmPassword").value);
+    let email = document.getElementById("email").value;
     let existingNames = getListOfNames();
 
     if (existingNames.filter(e => e == username) == "") {
         if (password === passCheck && password != null && password != "") {
-            createAccount(username, password);
+            if (email != "" & email != null && emailIsValid(email)) {
+                createAccount(username, password, btoa(email));
+            }
+            else {
+                alert("Email Invalid")
+            }
         } else {
-            console.log("password invalid");
+            alert("Password Invalid");
         }
     } else {
-        console.log("username already exists");
+        alert("Username already exists");
     }
 
+}
+
+function emailIsValid (email) {
+    return /\S+@\S+\.\S+/.test(email)
 }
 
 
@@ -39,14 +49,15 @@ function getListOfNames() {
 /**
  * Function to create an account that uses the check criteria function to determine if the account is valid
  * @param {*} username Username input
- * @param {*} password Password input
+ * @param {*} password Base64 Password input
+ * @param {*} email Base64 Email Input
  */
 
-function createAccount(username, password) {
+function createAccount(username, password, email) {
     //functinoallity required to check if username already exists
     let detailsArray = JSON.parse(localStorage.getItem("login-details"));
 
-    let wrapper = [username, password]
+    let wrapper = [username, password, email]
 
     detailsArray.push(JSON.stringify(wrapper))
 
