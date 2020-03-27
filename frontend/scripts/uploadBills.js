@@ -203,6 +203,8 @@ function split() {
 
   if (total == runningTotal) {
     billUsers();
+  } else {
+    alert("Values dont reach total of " + runningTotal);
   }
 }
 
