@@ -1,0 +1,28 @@
+insert into user values ('Leilani', 'bmatschuki@time.com', 'password123', '01');
+insert into user values ('Doris', 'djenkin4@g.co', 'pasz23', '02');
+insert into user values ('Cecil', 'hcecil2@cbslocal.com', '123Pass', '03');
+
+insert into group values ('01', 'House');
+insert into group values ('03', 'Friends');
+insert into group values ('05', 'Family');
+
+insert into userGroup values ('01', 01);
+insert into userGroup values ('01', 02);
+insert into userGroup values ('05', 03);
+insert into userGroup values ('05', 01);
+insert into userGroup values ('05', 02);
+
+insert into bill values ('1', 'lunch', '£5.99');
+insert into bill values ('5', 'shopping', '£200');
+
+insert into groupBill('01', '1');
+insert into groupBill('03', '5');
+
+insert into userBill('03', '1');
+insert into userBill('03', '5');
+insert into userBill('02', '1');
+insert into userBill('01', '5');
+
+insert into setting('01', 'Y');
+insert into setting('02', 'Y');
+insert into setting('03', 'N');
