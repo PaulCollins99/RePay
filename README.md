@@ -29,4 +29,4 @@ The database can be found in DatabaseSQL and populateDatabase.txt
 
 Signing out from google is not implemented in this app. This is due to the way that google handles logging out. Google believes a third party app should not force Google to clear its session. The end user must do this themselves.
 
-A few github issues did not make it into the final prototype due to time and knowledge restrictions
+A few github issues did not make it into the final prototype due to time and knowledge restrictions.
