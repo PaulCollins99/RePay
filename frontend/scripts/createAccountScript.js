@@ -1,18 +1,18 @@
 /**
- * Function to check on the criteria for creating account
+ * Function to check on the criteria for creating account and call the creation function
  */
 
 function checkCriteria() {
     let username = document.getElementById("username").value;
-    let password = btoa(document.getElementById("password").value);
-    let passCheck = btoa(document.getElementById("confirmPassword").value);
+    let password = document.getElementById("password").value;
+    let passCheck = document.getElementById("confirmPassword").value;
     let email = document.getElementById("email").value;
     let existingNames = getListOfNames();
 
     if (existingNames.filter(e => e == username) == "") {
         if (password === passCheck && password != null && password != "") {
             if (email != "" & email != null && emailIsValid(email)) {
-                createAccount(username, password, btoa(email));
+                createAccount(base54It(username), base54It(password), base54It(email));
             }
             else {
                 alert("Email Invalid")
@@ -25,6 +25,20 @@ function checkCriteria() {
     }
 
 }
+
+/**
+ * Function that converts the item parsed in and returns a base64 equivilant
+ * @param {*} item Item to be converted into base64 
+ */
+
+function base64It (item) {
+    return btoa(item)
+} 
+
+/**
+ * A function to check the basic syntac of the emai entered matches _@_._
+ * @param {*} email Email to be checked 
+ */
 
 function emailIsValid (email) {
     return /\S+@\S+\.\S+/.test(email)
@@ -71,6 +85,10 @@ function createAccount(username, password, email) {
     console.log("Account created");
     login();
 }
+
+/**
+ * Function to move the user onto the home.html page
+ */
 
 function login() {
     window.location.href = "home.html";

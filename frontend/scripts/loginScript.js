@@ -33,6 +33,9 @@ function onSignIn(googleUser) {
     console.log('Email: ' + profile.getEmail());
 }
 
+/**
+ * Function to move the user onto the createAccount screen
+ */
 
 function newAccount() {
     window.location.href = 'createAccount.html';

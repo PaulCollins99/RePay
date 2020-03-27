@@ -159,20 +159,36 @@ function getAdminUser() {
     });
 }
 
+/**
+ * Function used to call the addUser function when the corresponding button is clicked
+ */
+
 function newUser () {
     let user = document.getElementById("NewUserName").value
     addUser(user);
 }
+
+/**
+ * Function to call the delUser function when the corresponding button is clicked
+ */
 
 function delUser () {
     let user = document.getElementById("DeleteUser").value
     deleteUser(user);
 }
 
+/**
+ * Function to call the changeGroupName function when the corresponding button is clicked
+ */
+
 function changeName () {
     let name = document.getElementById("ChangeGroupName").value
     changeGroupName(name);
 }
+
+/**
+ * Function that loops through all users in the group and creates a new element containing how much they owe the group
+ */
 
 function loadUserList() {
     let groupToLoad = localStorage.getItem("groupToLoad");
