@@ -9,10 +9,6 @@
     }
 }
 
-#createNewGroup {
-    background-color: rgb(175, 52, 180);
-}
-
 .collection,
 .collection-item {
     border: none !important;
