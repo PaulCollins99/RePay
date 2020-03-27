@@ -9,6 +9,7 @@
     <title>RePay Upload Bill</title>
     <link rel="stylesheet" type="text/css" href="./style/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="./style/basestylesheet.css">
+    <link rel="stylesheet" type="text/css" href="./style/groupliststyle.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="./scripts/uploadBills.js"></script>
     <script src="./scripts/materialize.min.js"></script>
@@ -42,11 +43,12 @@
         <li><a href="index.html" id="logout">Log Out</a></li>
     </ul>
 
-    <div class="container">
+    <div class="container mobile">
         <section id="groupSelection">
             <div id="listOfGroups" class="collection "></div>
         </section>
-
+    </div>
+    <div class="container">
         <section id="userSelection" style="display: none;">
             <button type="button" class="waves-effect waves-light btn" id="selectAllBtn">Select All Group Members</button>
             <div id="listofUsers" class="collection "></div>

@@ -2,7 +2,7 @@ html {
     background-color: rgb(238, 238, 238) !important;
 }
 
-nav {
+nav, .btn-floating {
     background-color: rgb(175, 52, 180) !important;
 }
 
@@ -11,6 +11,6 @@ nav {
     color: rgb(0, 0, 0);
 }
 
-.btn-floating {
-    background-color: rgb(175, 52, 180);
+.btn:hover {
+    background-color: rgb(223, 223, 223);
 }
