@@ -18,7 +18,9 @@ module.exports.printHelloWorld = printHelloWorld;
 
 
 
-
+/**
+ * example of email sending function
+ */
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(
