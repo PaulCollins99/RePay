@@ -5,3 +5,8 @@ html {
 nav {
     background-color: rgb(175, 52, 180) !important;
 }
+
+.btn {
+    background-color: rgb(214, 215, 215);
+    color: rgb(0, 0, 0);
+}
